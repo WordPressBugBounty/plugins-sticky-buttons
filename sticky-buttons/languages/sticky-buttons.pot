@@ -1,0 +1,616 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Sticky Buttons\n"
+"POT-Creation-Date: 2024-08-29 12:43+0300\n"
+"PO-Revision-Date: 2024-08-29 12:43+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: sticky-buttons.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/class-settings-helper.php:24 admin/settings/options/1.menu.php:21
+msgid "Link"
+msgstr ""
+
+#: admin/class-settings-helper.php:25
+msgid "Email"
+msgstr ""
+
+#: admin/class-settings-helper.php:26
+msgid "Telephone"
+msgstr ""
+
+#: admin/class-settings-helper.php:27
+msgid "Login"
+msgstr ""
+
+#: admin/class-settings-helper.php:28
+msgid "Logout"
+msgstr ""
+
+#: admin/class-settings-helper.php:29
+msgid "Lostpassword"
+msgstr ""
+
+#: admin/class-settings-helper.php:30
+msgid "Register"
+msgstr ""
+
+#: admin/pages/1.list.php:58
+msgid "Search"
+msgstr ""
+
+#: admin/pages/2.settings.php:33
+msgid "Enter title here"
+msgstr ""
+
+#: admin/pages/2.settings.php:35
+msgid "Add title"
+msgstr ""
+
+#: admin/pages/3.tools.php:19
+msgid "Export Settings"
+msgstr ""
+
+#. translators: %s: plugin name
+#: admin/pages/3.tools.php:23
+#, php-format
+msgid ""
+"Export the  settings for %s as a .json file. This allows you to easily "
+"import the configuration into another site."
+msgstr ""
+
+#: admin/pages/3.tools.php:31
+msgid "Import Settings"
+msgstr ""
+
+#. translators: %s: plugin name
+#: admin/pages/3.tools.php:35
+#, php-format
+msgid ""
+"Import the %s settings from a .json file. This file can be obtained by "
+"exporting the settings on another site using the form above."
+msgstr ""
+
+#: admin/pages/3.tools.php:44
+msgid "Manage Capabilities"
+msgstr ""
+
+#: admin/pages/3.tools.php:46
+msgid ""
+"Manage the visibility of the plugin for users based on their Manage User "
+"Capabilities."
+msgstr ""
+
+#: admin/pages/4.support.php:17
+msgid ""
+"To get your support related question answered in the fastest timing, please "
+"send a message via the form below or write to us via"
+msgstr ""
+
+#: admin/pages/4.support.php:18
+msgid "support page"
+msgstr ""
+
+#: admin/pages/4.support.php:23
+msgid ""
+"Also, you can send us your ideas and suggestions for improving the plugin."
+msgstr ""
+
+#: admin/settings/1.menu.php:49 admin/settings/1.menu.php:138
+#: admin/settings/options/1.menu.php:15
+msgid "Type"
+msgstr ""
+
+#: admin/settings/1.menu.php:50 admin/settings/1.menu.php:139
+#: admin/settings/options/1.menu.php:29
+msgid "Icon"
+msgstr ""
+
+#: admin/settings/1.menu.php:51 admin/settings/1.menu.php:140
+msgid "Style"
+msgstr ""
+
+#: admin/settings/1.menu.php:52 admin/settings/1.menu.php:87
+#: admin/settings/1.menu.php:141 admin/settings/1.menu.php:176
+msgid "Attributes"
+msgstr ""
+
+#: admin/settings/1.menu.php:106
+msgid "Add Button"
+msgstr ""
+
+#: admin/settings/2.style.php:25
+msgid "Properties"
+msgstr ""
+
+#: admin/settings/2.style.php:54
+msgid "Location"
+msgstr ""
+
+#: admin/settings/2.style.php:84
+msgid "Appearance"
+msgstr ""
+
+#: admin/settings/4.rules.php:25
+msgid "Display Rules"
+msgstr ""
+
+#: admin/settings/4.rules.php:51
+msgid "Responsive Visibility"
+msgstr ""
+
+#: admin/settings/4.rules.php:78
+msgid "Other"
+msgstr ""
+
+#: admin/settings/options/1.menu.php:10
+msgid "Label Text"
+msgstr ""
+
+#: admin/settings/options/1.menu.php:43
+msgid "Font Color"
+msgstr ""
+
+#: admin/settings/options/1.menu.php:54
+msgid "Background"
+msgstr ""
+
+#: admin/settings/options/1.menu.php:61
+msgid "ID for element"
+msgstr ""
+
+#: admin/settings/options/1.menu.php:66
+msgid "Class for element"
+msgstr ""
+
+#: admin/settings/options/1.menu.php:71
+msgid "Attribute: rel"
+msgstr ""
+
+#: admin/settings/options/2.style.php:9
+msgid "Z-index"
+msgstr ""
+
+#: admin/settings/options/2.style.php:20
+msgid "Animation"
+msgstr ""
+
+#: admin/settings/options/2.style.php:23
+msgid "None"
+msgstr ""
+
+#: admin/settings/options/2.style.php:32
+msgid "Position"
+msgstr ""
+
+#: admin/settings/options/2.style.php:35
+msgid "Left Top"
+msgstr ""
+
+#: admin/settings/options/2.style.php:36
+msgid "Left Center"
+msgstr ""
+
+#: admin/settings/options/2.style.php:37
+msgid "Left Bottom"
+msgstr ""
+
+#: admin/settings/options/2.style.php:38
+msgid "Right Top"
+msgstr ""
+
+#: admin/settings/options/2.style.php:39
+msgid "Right Center"
+msgstr ""
+
+#: admin/settings/options/2.style.php:40
+msgid "Right Bottom"
+msgstr ""
+
+#: admin/settings/options/2.style.php:41
+msgid "Top Left"
+msgstr ""
+
+#: admin/settings/options/2.style.php:42
+msgid "Top Center"
+msgstr ""
+
+#: admin/settings/options/2.style.php:43
+msgid "Top Right"
+msgstr ""
+
+#: admin/settings/options/2.style.php:44
+msgid "Bottom Left"
+msgstr ""
+
+#: admin/settings/options/2.style.php:45
+msgid "Bottom Center"
+msgstr ""
+
+#: admin/settings/options/2.style.php:46
+msgid "Bottom Right"
+msgstr ""
+
+#: admin/settings/options/2.style.php:52
+msgid "Margin Block"
+msgstr ""
+
+#: admin/settings/options/2.style.php:59
+msgid "Margin Inline"
+msgstr ""
+
+#: admin/settings/options/2.style.php:68
+msgid "Shape"
+msgstr ""
+
+#: admin/settings/options/2.style.php:71
+msgid "Square"
+msgstr ""
+
+#: admin/settings/options/2.style.php:72
+msgid "Rounded square"
+msgstr ""
+
+#: admin/settings/options/2.style.php:73
+msgid "Circle"
+msgstr ""
+
+#: admin/settings/options/2.style.php:74
+msgid "Ellipse"
+msgstr ""
+
+#: admin/settings/options/2.style.php:80
+msgid "Size"
+msgstr ""
+
+#: admin/settings/options/2.style.php:83
+msgid "Medium"
+msgstr ""
+
+#: admin/settings/options/2.style.php:89
+msgid "Shadow"
+msgstr ""
+
+#: admin/settings/options/2.style.php:92
+msgid "Yes"
+msgstr ""
+
+#: admin/settings/options/2.style.php:93
+msgid "No"
+msgstr ""
+
+#: admin/settings/options/2.style.php:99
+msgid "Space"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:9 admin/settings/options/4.rules.php:12
+msgid "General"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:10
+msgid "Everywhere"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:11 classes/Admin/ListTable.php:97
+msgid "Shortcode"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:20
+msgid "Display"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:31
+msgid "Disable Font Awesome Icon"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:33
+msgid "Disable"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:42
+msgid "Hide on smaller screens"
+msgstr ""
+
+#: admin/settings/options/4.rules.php:53
+msgid "Hide on larger screens"
+msgstr ""
+
+#: admin/settings/options/template.php:8 admin/settings/options/template.php:17
+#: admin/settings/options/template.php:28
+#: admin/settings/options/template.php:49
+#: admin/settings/options/template.php:54 classes/Admin/ListTable.php:96
+msgid "Title"
+msgstr ""
+
+#: admin/settings/options/template.php:11
+msgid "Placeholder"
+msgstr ""
+
+#: admin/settings/options/template.php:31
+#: admin/settings/options/template.php:65
+msgid "1"
+msgstr ""
+
+#: admin/settings/options/template.php:32
+#: admin/settings/options/template.php:66
+msgid "2"
+msgstr ""
+
+#: admin/settings/options/template.php:33
+#: admin/settings/options/template.php:67
+msgid "3"
+msgstr ""
+
+#: admin/settings/options/template.php:40
+msgid "Color"
+msgstr ""
+
+#: admin/settings/options/template.php:50
+msgid "Enable"
+msgstr ""
+
+#: admin/settings/pro-plugin.php:21
+msgid "PRO FEATURES"
+msgstr ""
+
+#: admin/settings/sidebar.php:23
+msgid "Publish"
+msgstr ""
+
+#: admin/settings/sidebar.php:27 classes/Admin/ListTable.php:102
+msgid "Status"
+msgstr ""
+
+#: admin/settings/sidebar.php:30 classes/Admin/ListTable.php:265
+msgid "Deactivate"
+msgstr ""
+
+#: admin/settings/sidebar.php:35 classes/Admin/ListTable.php:99
+msgid "Test mode"
+msgstr ""
+
+#: admin/settings/sidebar.php:38 classes/Admin/ListTable.php:264
+msgid "Activate"
+msgstr ""
+
+#: admin/settings/sidebar.php:83 classes/Admin/ListTable.php:58
+msgid "Delete"
+msgstr ""
+
+#: admin/settings/sidebar.php:91 classes/Admin/ListTable.php:56
+msgid "Duplicate"
+msgstr ""
+
+#: classes/Admin/AdminNotices.php:39
+msgid "Item Saved"
+msgstr ""
+
+#: classes/Admin/AdminNotices.php:45
+msgid "Item Remove"
+msgstr ""
+
+#: classes/Admin/Dashboard.php:37
+msgid "Settings"
+msgstr ""
+
+#. translators: 1: Rating link (URL), 2: Plugin name
+#: classes/Admin/Dashboard.php:52
+#, php-format
+msgid ""
+"Thank you for using <b>%2$s</b>! Please <a href=\"%1$s\" "
+"target=\"_blank\">rate us</a>"
+msgstr ""
+
+#: classes/Admin/Dashboard.php:132
+msgid "Add New"
+msgstr ""
+
+#: classes/Admin/Dashboard.php:166
+msgid "Update"
+msgstr ""
+
+#: classes/Admin/ImporterExporter.php:25
+msgid "Export All Data"
+msgstr ""
+
+#: classes/Admin/ImporterExporter.php:44
+msgid "Update item if item already exists."
+msgstr ""
+
+#: classes/Admin/ImporterExporter.php:51
+msgid "Import"
+msgstr ""
+
+#: classes/Admin/ImporterExporter.php:71
+msgid "Please upload a valid .json file"
+msgstr ""
+
+#: classes/Admin/ImporterExporter.php:72
+msgid "Error"
+msgstr ""
+
+#: classes/Admin/ListTable.php:50
+msgid "Untitled"
+msgstr ""
+
+#: classes/Admin/ListTable.php:54
+msgid "Edit"
+msgstr ""
+
+#: classes/Admin/ListTable.php:60
+msgid "Export"
+msgstr ""
+
+#: classes/Admin/ListTable.php:64
+msgid "View"
+msgstr ""
+
+#: classes/Admin/ListTable.php:98
+msgid "Tag"
+msgstr ""
+
+#: classes/Admin/ListTable.php:100
+msgid "The item will only be displayed for administrators."
+msgstr ""
+
+#: classes/Admin/ListTable.php:103
+msgid "Display item on the Frontend."
+msgstr ""
+
+#: classes/Admin/ListTable.php:138
+msgid "UnTitle"
+msgstr ""
+
+#: classes/Admin/ListTable.php:139
+msgid "Click for Deactivate."
+msgstr ""
+
+#: classes/Admin/ListTable.php:140
+msgid "Click for Activate."
+msgstr ""
+
+#: classes/Admin/ListTable.php:141 classes/Admin/ListTable.php:150
+msgid "OFF"
+msgstr ""
+
+#: classes/Admin/ListTable.php:143 classes/Admin/ListTable.php:152
+msgid "ON"
+msgstr ""
+
+#: classes/Admin/ListTable.php:147
+msgid "Click for OFF."
+msgstr ""
+
+#: classes/Admin/ListTable.php:148
+msgid "Click for ON."
+msgstr ""
+
+#: classes/Admin/ListTable.php:263
+msgid "Delate"
+msgstr ""
+
+#: classes/Admin/ListTable.php:266
+msgid "Test mode ON"
+msgstr ""
+
+#: classes/Admin/ListTable.php:267
+msgid "Test mode OFF"
+msgstr ""
+
+#: classes/Admin/ListTable.php:318
+msgid "Filter by tag"
+msgstr ""
+
+#: classes/Admin/ListTable.php:321
+msgid "All"
+msgstr ""
+
+#: classes/Admin/ListTable.php:334
+msgid "Filter"
+msgstr ""
+
+#: classes/Admin/ManageCapabilities.php:34
+msgid "Save Change"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:24
+msgid "Support Form"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:29
+msgid "Your Name"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:37
+msgid "Contact email"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:49
+msgid "Link to the issue"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:58
+msgid "Message type"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:62
+msgid "Issue"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:63
+msgid "Idea"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:71
+msgid "Plugin"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:80
+msgid "License Key"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:91
+msgid "Enter Your Message"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:102
+msgid "Send to Support"
+msgstr ""
+
+#: classes/Admin/SupportForm.php:167
+msgid "Your message has been sent to the support team."
+msgstr ""
+
+#: classes/Admin/SupportForm.php:170
+msgid "Sorry, but message did not send. Please, contact us via support page."
+msgstr ""
+
+#: classes/Admin/SupportForm.php:182
+msgid "Please fill in all the form fields below."
+msgstr ""
+
+#: includes/class-wow-company.php:27
+msgid "WordPress plugins from Wow-Company"
+msgstr ""
+
+#: includes/class-wow-company.php:28
+msgid "Wow Plugins"
+msgstr ""
+
+#: sticky-buttons.php:142 sticky-buttons.php:153
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Sticky Buttons"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/sticky-buttons/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Easily create sticky buttons of varying complexity."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Wow-Company"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://wow-estore.com/"
+msgstr ""

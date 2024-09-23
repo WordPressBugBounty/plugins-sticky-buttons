@@ -1,0 +1,313 @@
+/*!
+ * ========= INFORMATION ============================
+ * - document:  Sticky Buttons Pro
+ * - brand:     Wow-Company
+ * - brand-url: https://wow-company.com/
+ * - store-url: https://wow-estore.com/
+ * - author:    Dmytro Lobov
+ * - url:       https://wow-estore.com/item/sticky-buttons-pro/
+ * ====================================================== */
+.sticky-buttons {
+  box-sizing: border-box;
+  all: unset;
+}
+
+.sticky-buttons li, .sticky-buttons a {
+  all: unset;
+}
+
+.sticky-buttons {
+  --z-index: 9;
+  --margin-inline: 0;
+  --margin-block: 0;
+  --color: #383838;
+  --bg: #81d742;
+  --block-size: 30px;
+  --size: 16px;
+  --shadow: none;
+  --gap: 0;
+  --br-icon: 0;
+  --br-label: 0;
+  --popover-inline: 270px;
+  --popover-size: 16px;
+  --popover-block: 550px;
+  --popover-backdrop: rgba(0, 0, 0, 0.85);
+  --popover-border-color: #222222;
+  --popover-padding: 10px;
+  position: fixed;
+  display: flex;
+  z-index: var(--z-index);
+  line-height: 1;
+  inset: auto;
+  gap: var(--gap);
+  margin-block: var(--margin-block);
+  margin-inline: var(--margin-inline);
+}
+@media print {
+  .sticky-buttons {
+    display: none;
+  }
+}
+.sticky-buttons [popover] {
+  max-inline-size: var(--popover-inline);
+  padding: var(--popover-padding);
+  border-color: var(--popover-border-color);
+  font-size: var(--popover-size);
+  max-block-size: var(--popover-block);
+}
+.sticky-buttons [popover]::backdrop {
+  background-color: var(--popover-backdrop);
+}
+.sticky-buttons li {
+  position: relative;
+}
+.sticky-buttons.is-hidden {
+  display: none;
+}
+.sticky-buttons .sb-icon {
+  display: inline-block;
+  background: var(--bg);
+  border-radius: var(--br-icon);
+  cursor: pointer;
+  color: var(--color);
+  text-align: center;
+  transition: all 0.5s;
+  inline-size: var(--block-size);
+}
+.sticky-buttons .sb-label {
+  position: absolute;
+  padding: 0 10px;
+  visibility: hidden;
+  background: var(--color);
+  border-radius: var(--br-label);
+  cursor: pointer;
+  opacity: 0;
+  color: var(--bg);
+  white-space: nowrap;
+  margin-inline: calc(var(--size) / 2);
+}
+.sticky-buttons .sb-label.-visible {
+  visibility: visible;
+  opacity: 1;
+  transform: none !important;
+}
+.sticky-buttons .sb-label:before {
+  position: absolute;
+  display: block;
+  background-color: inherit;
+  transform: translateY(-50%) rotate(45deg);
+  content: "";
+  inset: 50% auto auto calc(var(--size) / 4 * -1);
+  block-size: calc(var(--size) / 2);
+  inline-size: calc(var(--size) / 2);
+}
+.sticky-buttons .sb-label,
+.sticky-buttons .sb-icon {
+  block-size: var(--block-size);
+  box-shadow: var(--shadow);
+  font-size: var(--size);
+  line-height: var(--block-size);
+}
+.sticky-buttons a.is-active .sb-icon,
+.sticky-buttons a:focus .sb-icon,
+.sticky-buttons a:hover .sb-icon {
+  background: var(--color);
+  color: var(--bg);
+}
+.sticky-buttons a.is-active .sb-label,
+.sticky-buttons a:focus .sb-label,
+.sticky-buttons a:hover .sb-label {
+  visibility: visible;
+  opacity: 1;
+}
+.sticky-buttons.-shadow {
+  --shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.sticky-buttons.-small {
+  --block-size: 30px;
+  --size: 16px;
+}
+.sticky-buttons.-medium {
+  --block-size: 40px;
+  --size: 20px;
+}
+.sticky-buttons.-large {
+  --block-size: 50px;
+  --size: 24px;
+}
+.sticky-buttons.-square {
+  --br-icon: 0;
+  --br-label: 0;
+}
+.sticky-buttons.-rsquare {
+  --br-icon: 0.25em;
+  --br-label: 0.25em;
+}
+.sticky-buttons.-circle {
+  --br-icon: 50%;
+  --br-label: 0.25em;
+}
+.sticky-buttons.-ellipse {
+  --br-icon: 25% 75%;
+  --br-label: 0.25em;
+}
+.sticky-buttons.-left-top, .sticky-buttons.-left-center, .sticky-buttons.-left-bottom, .sticky-buttons.-right-top, .sticky-buttons.-right-center, .sticky-buttons.-right-bottom {
+  flex-direction: column;
+}
+.sticky-buttons.-left-top {
+  inset: 0 auto auto 0;
+}
+.sticky-buttons.-left-center {
+  inset: 50% auto auto 0;
+  transform: translateY(-50%);
+}
+.sticky-buttons.-left-bottom {
+  inset: auto auto 0 0;
+}
+.sticky-buttons.-right-top .sb-label, .sticky-buttons.-right-center .sb-label, .sticky-buttons.-right-bottom .sb-label {
+  inset: auto 100% auto auto;
+}
+.sticky-buttons.-right-top .sb-label:before, .sticky-buttons.-right-center .sb-label:before, .sticky-buttons.-right-bottom .sb-label:before {
+  inset: 50% calc(var(--size) / 4 * -1) auto auto;
+}
+.sticky-buttons.-right-top {
+  inset: 0 0 auto auto;
+}
+.sticky-buttons.-right-center {
+  inset: 50% 0 auto auto;
+  transform: translateY(-50%);
+}
+.sticky-buttons.-right-bottom {
+  inset: auto 0 0 auto;
+}
+.sticky-buttons.-top-left .sb-label, .sticky-buttons.-top-center .sb-label, .sticky-buttons.-top-right .sb-label {
+  inset: 100% auto auto 0;
+  margin-inline: 0;
+  margin-block: 12px;
+}
+.sticky-buttons.-top-left .sb-label:before, .sticky-buttons.-top-center .sb-label:before, .sticky-buttons.-top-right .sb-label:before {
+  inset: 0 auto calc(var(--size) / 4 * -1) auto;
+}
+.sticky-buttons.-top-left {
+  inset: 0 auto auto 0;
+}
+.sticky-buttons.-top-center {
+  inset: 0 auto auto 50%;
+  transform: translateX(-50%);
+}
+.sticky-buttons.-top-right {
+  inset: 0 0 auto auto;
+}
+.sticky-buttons.-top-right .sb-label {
+  inset: 100% 0 auto auto;
+}
+.sticky-buttons.-top-right .sb-label:before {
+  inset: 0 calc(var(--size) / 2) calc(var(--size) / 4 * -1) auto;
+}
+.sticky-buttons.-bottom-left .sb-label, .sticky-buttons.-bottom-center .sb-label, .sticky-buttons.-bottom-right .sb-label {
+  inset: auto auto 100% 0;
+  margin-inline: 0;
+  margin-block: 12px;
+}
+.sticky-buttons.-bottom-left .sb-label:before, .sticky-buttons.-bottom-center .sb-label:before, .sticky-buttons.-bottom-right .sb-label:before {
+  inset: 100% auto calc(var(--size) / 4 * -1) auto;
+}
+.sticky-buttons.-bottom-left {
+  inset: auto auto 0 0;
+}
+.sticky-buttons.-bottom-center {
+  inset: auto auto 0 50%;
+  transform: translateX(-50%);
+}
+.sticky-buttons.-bottom-right {
+  inset: auto 0 0 auto;
+}
+.sticky-buttons.-bottom-right .sb-label {
+  inset: auto 0 100% auto;
+}
+.sticky-buttons.-bottom-right .sb-label:before {
+  inset: 100% calc(var(--size) / 2) calc(var(--size) / 4 * -1) auto;
+}
+.sticky-buttons.-fade .sb-label, .sticky-buttons.-flip-x .sb-label, .sticky-buttons.-flip-y .sb-label, .sticky-buttons.-slide .sb-label, .sticky-buttons.-slide-out .sb-label, .sticky-buttons.-zoom .sb-label, .sticky-buttons.-rotate .sb-label, .sticky-buttons.-rotate-zoom .sb-label {
+  transition: all 0.5s;
+}
+.sticky-buttons.-flip-x a .sb-label {
+  transform: scaleX(0);
+}
+.sticky-buttons.-flip-x a.is-active .sb-label, .sticky-buttons.-flip-x a:focus .sb-label, .sticky-buttons.-flip-x a:hover .sb-label {
+  transform: scaleX(1);
+}
+.sticky-buttons.-flip-y a .sb-label {
+  transform: scaleY(0);
+}
+.sticky-buttons.-flip-y a.is-active .sb-label, .sticky-buttons.-flip-y a:focus .sb-label, .sticky-buttons.-flip-y a:hover .sb-label {
+  transform: scaleY(1);
+}
+.sticky-buttons.-slide.-left-top a .sb-label, .sticky-buttons.-slide.-left-center a .sb-label, .sticky-buttons.-slide.-left-bottom a .sb-label {
+  transform: translateX(-100%);
+}
+.sticky-buttons.-slide.-left-top a.is-active .sb-label, .sticky-buttons.-slide.-left-top a:focus .sb-label, .sticky-buttons.-slide.-left-top a:hover .sb-label, .sticky-buttons.-slide.-left-center a.is-active .sb-label, .sticky-buttons.-slide.-left-center a:focus .sb-label, .sticky-buttons.-slide.-left-center a:hover .sb-label, .sticky-buttons.-slide.-left-bottom a.is-active .sb-label, .sticky-buttons.-slide.-left-bottom a:focus .sb-label, .sticky-buttons.-slide.-left-bottom a:hover .sb-label {
+  transform: translateX(0);
+}
+.sticky-buttons.-slide.-right-top a .sb-label, .sticky-buttons.-slide.-right-center a .sb-label, .sticky-buttons.-slide.-right-bottom a .sb-label {
+  transform: translateX(100%);
+}
+.sticky-buttons.-slide.-right-top a.is-active .sb-label, .sticky-buttons.-slide.-right-top a:focus .sb-label, .sticky-buttons.-slide.-right-top a:hover .sb-label, .sticky-buttons.-slide.-right-center a.is-active .sb-label, .sticky-buttons.-slide.-right-center a:focus .sb-label, .sticky-buttons.-slide.-right-center a:hover .sb-label, .sticky-buttons.-slide.-right-bottom a.is-active .sb-label, .sticky-buttons.-slide.-right-bottom a:focus .sb-label, .sticky-buttons.-slide.-right-bottom a:hover .sb-label {
+  transform: translateX(0);
+}
+.sticky-buttons.-slide.-bottom-left a .sb-label, .sticky-buttons.-slide.-bottom-center a .sb-label, .sticky-buttons.-slide.-bottom-right a .sb-label {
+  transform: translateY(100%);
+}
+.sticky-buttons.-slide.-bottom-left a.is-active .sb-label, .sticky-buttons.-slide.-bottom-left a:focus .sb-label, .sticky-buttons.-slide.-bottom-left a:hover .sb-label, .sticky-buttons.-slide.-bottom-center a.is-active .sb-label, .sticky-buttons.-slide.-bottom-center a:focus .sb-label, .sticky-buttons.-slide.-bottom-center a:hover .sb-label, .sticky-buttons.-slide.-bottom-right a.is-active .sb-label, .sticky-buttons.-slide.-bottom-right a:focus .sb-label, .sticky-buttons.-slide.-bottom-right a:hover .sb-label {
+  transform: translateY(0);
+}
+.sticky-buttons.-slide.-top-left a .sb-label, .sticky-buttons.-slide.-top-center a .sb-label, .sticky-buttons.-slide.-top-right a .sb-label {
+  transform: translateY(-100%);
+}
+.sticky-buttons.-slide.-top-left a.is-active .sb-label, .sticky-buttons.-slide.-top-left a:focus .sb-label, .sticky-buttons.-slide.-top-left a:hover .sb-label, .sticky-buttons.-slide.-top-center a.is-active .sb-label, .sticky-buttons.-slide.-top-center a:focus .sb-label, .sticky-buttons.-slide.-top-center a:hover .sb-label, .sticky-buttons.-slide.-top-right a.is-active .sb-label, .sticky-buttons.-slide.-top-right a:focus .sb-label, .sticky-buttons.-slide.-top-right a:hover .sb-label {
+  transform: translateY(0);
+}
+.sticky-buttons.-slide-out.-left-top a .sb-label, .sticky-buttons.-slide-out.-left-center a .sb-label, .sticky-buttons.-slide-out.-left-bottom a .sb-label {
+  transform: translateX(25%);
+}
+.sticky-buttons.-slide-out.-left-top a.is-active .sb-label, .sticky-buttons.-slide-out.-left-top a:focus .sb-label, .sticky-buttons.-slide-out.-left-top a:hover .sb-label, .sticky-buttons.-slide-out.-left-center a.is-active .sb-label, .sticky-buttons.-slide-out.-left-center a:focus .sb-label, .sticky-buttons.-slide-out.-left-center a:hover .sb-label, .sticky-buttons.-slide-out.-left-bottom a.is-active .sb-label, .sticky-buttons.-slide-out.-left-bottom a:focus .sb-label, .sticky-buttons.-slide-out.-left-bottom a:hover .sb-label {
+  transform: translateX(0);
+}
+.sticky-buttons.-slide-out.-right-top a .sb-label, .sticky-buttons.-slide-out.-right-center a .sb-label, .sticky-buttons.-slide-out.-right-bottom a .sb-label {
+  transform: translateX(-25%);
+}
+.sticky-buttons.-slide-out.-right-top a.is-active .sb-label, .sticky-buttons.-slide-out.-right-top a:focus .sb-label, .sticky-buttons.-slide-out.-right-top a:hover .sb-label, .sticky-buttons.-slide-out.-right-center a.is-active .sb-label, .sticky-buttons.-slide-out.-right-center a:focus .sb-label, .sticky-buttons.-slide-out.-right-center a:hover .sb-label, .sticky-buttons.-slide-out.-right-bottom a.is-active .sb-label, .sticky-buttons.-slide-out.-right-bottom a:focus .sb-label, .sticky-buttons.-slide-out.-right-bottom a:hover .sb-label {
+  transform: translateX(0);
+}
+.sticky-buttons.-slide-out.-bottom-left a .sb-label, .sticky-buttons.-slide-out.-bottom-center a .sb-label, .sticky-buttons.-slide-out.-bottom-right a .sb-label {
+  transform: translateY(-25%);
+}
+.sticky-buttons.-slide-out.-bottom-left a.is-active .sb-label, .sticky-buttons.-slide-out.-bottom-left a:focus .sb-label, .sticky-buttons.-slide-out.-bottom-left a:hover .sb-label, .sticky-buttons.-slide-out.-bottom-center a.is-active .sb-label, .sticky-buttons.-slide-out.-bottom-center a:focus .sb-label, .sticky-buttons.-slide-out.-bottom-center a:hover .sb-label, .sticky-buttons.-slide-out.-bottom-right a.is-active .sb-label, .sticky-buttons.-slide-out.-bottom-right a:focus .sb-label, .sticky-buttons.-slide-out.-bottom-right a:hover .sb-label {
+  transform: translateY(0);
+}
+.sticky-buttons.-slide-out.-top-left a .sb-label, .sticky-buttons.-slide-out.-top-center a .sb-label, .sticky-buttons.-slide-out.-top-right a .sb-label {
+  transform: translateY(25%);
+}
+.sticky-buttons.-slide-out.-top-left a.is-active .sb-label, .sticky-buttons.-slide-out.-top-left a:focus .sb-label, .sticky-buttons.-slide-out.-top-left a:hover .sb-label, .sticky-buttons.-slide-out.-top-center a.is-active .sb-label, .sticky-buttons.-slide-out.-top-center a:focus .sb-label, .sticky-buttons.-slide-out.-top-center a:hover .sb-label, .sticky-buttons.-slide-out.-top-right a.is-active .sb-label, .sticky-buttons.-slide-out.-top-right a:focus .sb-label, .sticky-buttons.-slide-out.-top-right a:hover .sb-label {
+  transform: translateY(0);
+}
+.sticky-buttons.-zoom a .sb-label {
+  transform: scale(0, 0);
+}
+.sticky-buttons.-zoom a.is-active .sb-label, .sticky-buttons.-zoom a:focus .sb-label, .sticky-buttons.-zoom a:hover .sb-label {
+  transform: scale(1, 1);
+}
+.sticky-buttons.-rotate a .sb-label {
+  transform: rotate(0deg);
+}
+.sticky-buttons.-rotate a.is-active .sb-label, .sticky-buttons.-rotate a:focus .sb-label, .sticky-buttons.-rotate a:hover .sb-label {
+  transform: rotate(360deg);
+}
+.sticky-buttons.-rotate-zoom a .sb-label {
+  transform: rotate(0deg) scale(0, 0);
+}
+.sticky-buttons.-rotate-zoom a.is-active .sb-label, .sticky-buttons.-rotate-zoom a:focus .sb-label, .sticky-buttons.-rotate-zoom a:hover .sb-label {
+  transform: rotate(360deg) scale(1, 1);
+}
+
+/*# sourceMappingURL=style.css.map */
