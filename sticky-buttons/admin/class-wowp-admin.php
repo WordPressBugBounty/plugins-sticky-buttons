@@ -46,24 +46,24 @@ class WOWP_Admin {
 
 	public function save_settings() {
 
-		$param = ! empty( $_POST['param'] ) ? map_deep( $_POST['param'], 'sanitize_text_field' ) : [];
+		$param = ! empty( $_POST['param'] ) ? map_deep( wp_unslash($_POST['param']), 'sanitize_text_field' ) : [];
 
 		if ( isset( $_POST['param']['menu_1']['item_tooltip'] ) ) {
-			$param['menu_1']['item_tooltip'] = map_deep( $_POST['param']['menu_1']['item_tooltip'], array(
+			$param['menu_1']['item_tooltip'] = map_deep( wp_unslash($_POST['param']['menu_1']['item_tooltip']), array(
 				$this,
 				'sanitize_tooltip'
 			) );
 		}
 
 		if ( isset( $_POST['param']['menu_1']['item_text'] ) ) {
-			$param['menu_1']['item_text'] = map_deep( $_POST['param']['menu_1']['item_text'], [
+			$param['menu_1']['item_text'] = map_deep( wp_unslash($_POST['param']['menu_1']['item_text']), [
 				$this,
 				'sanitize_text'
 			] );
 		}
 
 		if ( isset( $_POST['param']['menu_1']['item_custom_text'] ) ) {
-			$param['menu_1']['item_custom_text'] = map_deep( $_POST['param']['menu_1']['item_custom_text'], [
+			$param['menu_1']['item_custom_text'] = map_deep( wp_unslash($_POST['param']['menu_1']['item_custom_text']), [
 				$this,
 				'sanitize_tooltip'
 			] );
@@ -104,7 +104,7 @@ class WOWP_Admin {
 		$url_assets        = WOWP_Plugin::url() . 'vendors/';
 		$slug              = 'notification';
 		$fonticonpicker_js = $url_assets . 'fonticonpicker/fonticonpicker.min.js';
-		wp_enqueue_script( $slug . '-fonticonpicker', $fonticonpicker_js, array( 'jquery' ) );
+		wp_enqueue_script( $slug . '-fonticonpicker', $fonticonpicker_js, array( 'jquery' ), '2.0', true );
 
 		$fonticonpicker_css = $url_assets . 'fonticonpicker/css/fonticonpicker.min.css';
 		wp_enqueue_style( $slug . '-fonticonpicker', $fonticonpicker_css );

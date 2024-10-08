@@ -59,7 +59,7 @@ class ManageCapabilities {
 		}
 
 		$capabilities = array_unique( $capabilities );
-		sort($capabilities);
+		sort( $capabilities );
 
 		return $capabilities;
 
@@ -76,7 +76,7 @@ class ManageCapabilities {
 			return false;
 		}
 
-		$capability = sanitize_text_field( $_POST['plugin_capability'] );
+		$capability = sanitize_text_field( wp_unslash( $_POST['plugin_capability'] ) );
 
 		update_option( WOWP_Plugin::PREFIX . '_plugin_capabilities', $capability );
 

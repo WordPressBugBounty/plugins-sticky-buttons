@@ -9,14 +9,14 @@ use StickyButtons\WOWP_Plugin;
 class DBManager {
 
 	public static function remove_item() {
-		$verify = AdminActions::verify(WOWP_Plugin::PREFIX . '_remove_item');
+		$verify = AdminActions::verify( WOWP_Plugin::PREFIX . '_remove_item' );
 
 		if ( ! $verify ) {
 			return false;
 		}
 
-		$page   = isset( $_GET['page'] ) ? sanitize_text_field( $_GET['page'] ) : '';
-		$action = isset( $_GET['action'] ) ? sanitize_text_field( $_GET['action'] ) : '';
+		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
 		$id     = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : '';
 
 		if ( ( $page !== WOWP_Plugin::SLUG ) || ( $action !== 'delete' ) || empty( $id ) ) {
@@ -52,7 +52,7 @@ class DBManager {
 	public static function create( $columns ): void {
 
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table           = $wpdb->prefix . WOWP_Plugin::PREFIX;
 		$charset_collate = $wpdb->get_charset_collate();
 
 		$sql = "CREATE TABLE {$table} ($columns) $charset_collate;";
@@ -66,7 +66,7 @@ class DBManager {
 		$table  = $wpdb->prefix . WOWP_Plugin::PREFIX;
 		$result = $wpdb->get_results( "SELECT * FROM {$table} ORDER BY id ASC" );
 
-		return (! empty( $result ) && is_array( $result ) ) ? $result : false;
+		return ( ! empty( $result ) && is_array( $result ) ) ? $result : false;
 	}
 
 	public static function get_data_by_id( $id = '' ) {
@@ -79,12 +79,13 @@ class DBManager {
 		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE id=%d", absint( $id ) ) );
 	}
 
-	public static function get_param_id($id = '') {
+	public static function get_param_id( $id = '' ) {
 		if ( empty( $id ) ) {
 			return false;
 		}
-		$result = self::get_data_by_id($id);
-		return maybe_unserialize($result->param);
+		$result = self::get_data_by_id( $id );
+
+		return maybe_unserialize( $result->param );
 	}
 
 	public static function get_data_by_title( $title = '' ) {

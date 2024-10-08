@@ -21,22 +21,22 @@ class SupportForm {
 
             <fieldset class="wpie-fieldset">
                 <legend>
-					<?php esc_html_e( 'Support Form', 'sticky-buttons' ); ?>
+					<?php esc_html_e( 'Support Form', 'side-menu-lite' ); ?>
                 </legend>
 
                 <div class="wpie-fields is-column-2">
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Your Name', 'sticky-buttons' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Your Name', 'side-menu-lite' ); ?></div>
                         <label class="wpie-field__label has-icon">
-                            <span class="wpie-icon wpie_icon-user"></span>
+                            <span class="dashicons dashicons-admin-users"></span>
                             <input type="text" name="support[name]" id="support-name" value="">
                         </label>
                     </div>
 
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Contact email', 'sticky-buttons' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Contact email', 'side-menu-lite' ); ?></div>
                         <label class="wpie-field__label has-icon">
-                            <span class="wpie-icon wpie_icon-at-sign"></span>
+                            <span class="dashicons dashicons-email"></span>
                             <input type="email" name="support[email]" id="support-email"
                                    value="<?php echo esc_attr( get_option( 'admin_email' ) ); ?>">
                         </label>
@@ -46,21 +46,20 @@ class SupportForm {
                 <div class="wpie-fields is-column-2">
 
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Link to the issue', 'sticky-buttons' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Link to the issue', 'side-menu-lite' ); ?></div>
                         <label class="wpie-field__label has-icon">
-                            <span class="wpie-icon wpie_icon-link"></span>
+                            <span class="dashicons dashicons-admin-links"></span>
                             <input type="url" name="support[link]" id="support-link"
                                    value="<?php echo esc_url( get_option( 'home' ) ); ?>">
                         </label>
                     </div>
 
                     <div class="wpie-field" data-field-box="menu_open">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Message type', 'sticky-buttons' ); ?></div>
-                        <label class="wpie-field__label has-icon">
-                            <span class="wpie-icon wpie_icon-check"></span>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Message type', 'side-menu-lite' ); ?></div>
+                        <label class="wpie-field__label">
                             <select name="support[type]" id="support-type">
-                                <option value="Issue"><?php esc_html_e( 'Issue', 'sticky-buttons' ); ?></option>
-                                <option value="Idea"><?php esc_html_e( 'Idea', 'sticky-buttons' ); ?></option>
+                                <option value="Issue"><?php esc_html_e( 'Issue', 'side-menu-lite' ); ?></option>
+                                <option value="Idea"><?php esc_html_e( 'Idea', 'side-menu-lite' ); ?></option>
                             </select>
                         </label>
                     </div>
@@ -68,16 +67,16 @@ class SupportForm {
                 </div>
                 <div class="wpie-fields is-column-2">
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Plugin', 'sticky-buttons' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Plugin', 'side-menu-lite' ); ?></div>
                         <label class="wpie-field__label has-icon">
-                            <span class="wpie-icon wpie_icon-plug"></span>
+                            <span class="dashicons dashicons-admin-plugins"></span>
                             <input type="text" readonly name="support[plugin]" id="support-plugin"
                                    value="<?php echo esc_attr( $plugin ); ?>">
                         </label>
                     </div>
 
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'License Key', 'sticky-buttons' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'License Key', 'side-menu-lite' ); ?></div>
                         <label class="wpie-field__label has-icon">
                             <span class="wpie-icon wpie_icon-key"></span>
                             <input type="text" readonly name="support[license]" id="support-license"
@@ -88,7 +87,7 @@ class SupportForm {
                 </div>
                 <div class="wpie-fields is-column">
 					<?php
-					$content   = esc_attr__( 'Enter Your Message', 'sticky-buttons' );
+					$content   = __( 'Enter Your Message', 'side-menu-lite' );
 					$editor_id = 'support-message';
 					$settings  = array(
 						'textarea_name' => 'support[message]',
@@ -99,7 +98,7 @@ class SupportForm {
                 <div class="wpie-fields is-column">
 
                     <div class="wpie-field">
-						<?php submit_button( __( 'Send to Support', 'sticky-buttons' ), 'primary', 'submit', false ); ?>
+						<?php submit_button( __( 'Send to Support', 'side-menu-lite' ), 'primary', 'submit', false ); ?>
                     </div>
                 </div>
 				<?php wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_support' ); ?>
@@ -126,11 +125,13 @@ class SupportForm {
 			return;
 		}
 
-		$from    = sanitize_text_field( $_POST['support']['name'] );
-		$email   = sanitize_email( $_POST['support']['email'] );
-		$license = sanitize_text_field( $_POST['support']['license'] );
-		$plugin  = sanitize_text_field( $_POST['support']['plugin'] );
-		$link    = sanitize_url( $_POST['support']['link'] );
+		$from    = isset( $_POST['support']['name'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['name'] ) ) : '';
+		$email   = isset( $_POST['support']['email'] ) ? sanitize_email( wp_unslash( $_POST['support']['email'] ) ) : '';
+		$license = isset( $_POST['support']['license'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['license'] ) ) : '';
+		$plugin  = isset( $_POST['support']['plugin'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['plugin'] ) ) : '';
+		$link    = isset( $_POST['support']['link'] ) ? sanitize_url( wp_unslash( $_POST['support']['link'] ) ) : '';
+		$message = isset( $_POST['support']['message'] ) ? wp_kses_post( wp_unslash( $_POST['support']['message'] ) ) : '';
+		$type    = isset( $_POST['support']['type'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['type'] ) ) : '';
 
 		$headers = array(
 			'From: ' . esc_attr( $from ) . ' <' . esc_attr( $email ) . '>',
@@ -156,18 +157,17 @@ class SupportForm {
                         </tr>
                         </table>
                         <p/>
-                        ' . nl2br( wp_kses_post( $_POST['support']['message'] ) ) . ' 
+                        ' . nl2br( wp_kses_post( $message ) ) . ' 
                         </body>
                         </html>';
-		$type         = sanitize_text_field( $_POST['support']['type'] );
 		$to_mail      = WOWP_Plugin::info( 'email' );
 		$send         = wp_mail( $to_mail, 'Support Request: ' . $type, $message_mail, $headers );
 
 		if ( $send ) {
-			$text = __( 'Your message has been sent to the support team.', 'sticky-buttons' );
+			$text = __( 'Your message has been sent to the support team.', 'side-menu-lite' );
 			echo '<p class="notice notice-success">' . esc_html( $text ) . '</p>';
 		} else {
-			$text = __( 'Sorry, but message did not send. Please, contact us via support page.', 'sticky-buttons' );
+			$text = __( 'Sorry, but message did not send. Please, contact us via support page.', 'side-menu-lite' );
 			echo '<p class="notice notice-error">' . esc_html( $text ) . '</p>';
 		}
 
@@ -179,7 +179,7 @@ class SupportForm {
 
 		foreach ( $fields as $field ) {
 			if ( empty( $_POST['support'][ $field ] ) ) {
-				return __( 'Please fill in all the form fields below.', 'sticky-buttons' );
+				return __( 'Please fill in all the form fields below.', 'side-menu-lite' );
 			}
 		}
 

@@ -47,7 +47,7 @@ class Settings {
 			return false;
 		}
 
-		$id = absint( $_POST['tool_id'] );
+		$id = isset( $_POST['tool_id'] ) ? absint( wp_unslash( $_POST['tool_id'] ) ) : 0;
 
 		$settings = apply_filters( WOWP_Plugin::PREFIX . '_save_settings', '' );
 
@@ -153,7 +153,7 @@ class Settings {
 			return false;
 		}
 
-		$action = isset( $_REQUEST['action'] ) ? sanitize_text_field( $_REQUEST['action'] ) : 'update';
+		$action = isset( $_REQUEST['action'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['action'] ) ) : 'update';
 		$result = DBManager::get_data_by_id( $id );
 
 		if ( empty( $result ) || empty( $result->param ) ) {
