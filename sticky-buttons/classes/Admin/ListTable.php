@@ -49,22 +49,22 @@ class ListTable extends WP_List_Table {
 	}
 
 	public function column_title( $item ): string {
-		$title   = ! empty( $item['title'] ) ? $item['title'] : __( 'Untitled', 'side-menu-lite' );
+		$title   = ! empty( $item['title'] ) ? $item['title'] : __( 'Untitled', 'sticky-buttons' );
 		$param   = DBManager::get_param_id( $item['ID'] );
 		$actions = [
 			'id'        => '#' . $item['ID'],
 			'edit'      => '<a href="' . esc_url( Link::edit( $item['ID'] ) ) . '">' . esc_html__( 'Edit',
-					'side-menu-lite' ) . '</a>',
+					'sticky-buttons' ) . '</a>',
 			'duplicate' => '<a href="' . esc_url( Link::duplicate( $item['ID'] ) ) . '">' . esc_html__( 'Duplicate',
-					'side-menu-lite' ) . '</a>',
+					'sticky-buttons' ) . '</a>',
 			'delete'    => '<a href="' . esc_url( Link::remove( $item['ID'] ) ) . '" >' . esc_html__( 'Delete',
-					'side-menu-lite' ) . '</a>',
+					'sticky-buttons' ) . '</a>',
 			'export'    => '<a href="' . esc_url( Link::export( $item['ID'] ) ) . '" >' . esc_html__( 'Export',
-					'side-menu-lite' ) . '</a>',
+					'sticky-buttons' ) . '</a>',
 		];
 		if ( ! empty( $param['link'] ) ) {
 			$actions['view'] = '<a href="' . esc_url( $param['link'] ) . '" target="_blank">' . esc_html__( 'View',
-					'side-menu-lite' ) . '</a>';
+					'sticky-buttons' ) . '</a>';
 		}
 
 
@@ -95,15 +95,15 @@ class ListTable extends WP_List_Table {
 	public function get_columns(): array {
 		return [
 			'cb'     => '<input type="checkbox" />',
-			'title'  => __( 'Title', 'side-menu-lite' ),
-			'code'   => __( 'Shortcode', 'side-menu-lite' ),
-			'tag'    => __( 'Tag', 'side-menu-lite' ),
+			'title'  => __( 'Title', 'sticky-buttons' ),
+			'code'   => __( 'Shortcode', 'sticky-buttons' ),
+			'tag'    => __( 'Tag', 'sticky-buttons' ),
 			'mode'   => __( 'Test mode',
-					'side-menu-lite' ) . '<sup class="has-tooltip" data-tooltip="' . __( 'The item will only be displayed for administrators.',
-					'side-menu-lite' ) . '">ℹ</sup>',
+					'sticky-buttons' ) . '<sup class="has-tooltip" data-tooltip="' . __( 'The item will only be displayed for administrators.',
+					'sticky-buttons' ) . '">ℹ</sup>',
 			'status' => __( 'Status',
-					'side-menu-lite' ) . '<sup class="has-tooltip" data-tooltip="' . __( 'Display item on the Frontend.',
-					'side-menu-lite' ) . '">ℹ</sup>',
+					'sticky-buttons' ) . '<sup class="has-tooltip" data-tooltip="' . __( 'Display item on the Frontend.',
+					'sticky-buttons' ) . '">ℹ</sup>',
 		];
 	}
 
@@ -137,22 +137,22 @@ class ListTable extends WP_List_Table {
 			'action' => 'update'
 		], admin_url( 'admin.php' ) );
 		foreach ( $result as $key => $value ) {
-			$title       = ! empty( $value->title ) ? $value->title : __( 'UnTitle', 'side-menu-lite' );
-			$tooltip_off = esc_attr__( 'Click for Deactivate.', 'side-menu-lite' );
-			$tooltip_on  = esc_attr__( 'Click for Activate.', 'side-menu-lite' );
+			$title       = ! empty( $value->title ) ? $value->title : __( 'UnTitle', 'sticky-buttons' );
+			$tooltip_off = esc_attr__( 'Click for Deactivate.', 'sticky-buttons' );
+			$tooltip_on  = esc_attr__( 'Click for Activate.', 'sticky-buttons' );
 			$status_off  = '<a href="' . esc_url( Link::activate_url( $value->id ) ) . '" class="wpie-toogle is-off" data-tooltip="' . esc_attr( $tooltip_on ) . '"><span>' . esc_attr__( 'OFF',
-					'side-menu-lite' ) . '</span></a>';
+					'sticky-buttons' ) . '</span></a>';
 			$status_on   = '<a href="' . esc_url( Link::deactivate_url( $value->id ) ) . '" class="wpie-toogle is-on" data-tooltip="' . esc_attr( $tooltip_off ) . '"><span>' . esc_attr__( 'ON',
-					'side-menu-lite' ) . '</span></a>';
+					'sticky-buttons' ) . '</span></a>';
 			$status      = ! empty( $value->status ) ? $status_off : $status_on;
 
-			$mode_tooltip_off = esc_attr__( 'Click for OFF.', 'side-menu-lite' );
-			$mode_tooltip_on  = esc_attr__( 'Click for ON.', 'side-menu-lite' );
+			$mode_tooltip_off = esc_attr__( 'Click for OFF.', 'sticky-buttons' );
+			$mode_tooltip_on  = esc_attr__( 'Click for ON.', 'sticky-buttons' );
 
 			$mode_off = '<a href="' . esc_url( Link::activate_mode( $value->id ) ) . '" class="wpie-toogle is-off" data-tooltip="' . esc_attr( $mode_tooltip_on ) . '"><span>' . esc_attr__( 'OFF',
-					'side-menu-lite' ) . '</span></a>';
+					'sticky-buttons' ) . '</span></a>';
 			$mode_on  = '<a href="' . esc_url( Link::deactivate_mode( $value->id ) ) . '" class="wpie-toogle is-on" data-tooltip="' . esc_attr( $mode_tooltip_off ) . '"><span>' . esc_attr__( 'ON',
-					'side-menu-lite' ) . '</span></a>';
+					'sticky-buttons' ) . '</span></a>';
 
 			$mode = empty( $value->mode ) ? $mode_off : $mode_on;
 
@@ -170,7 +170,13 @@ class ListTable extends WP_List_Table {
 			$data[] = array(
 				'ID'     => $value->id,
 				'title'  => '<a href="' . esc_url( $link ) . '">' . esc_html( $title ) . '</a>',
-				'code'   => '<input type="text" value="[' . esc_attr( $shortcode ) . ' id=\'' . absint( $value->id ) . '\']" readonly>',
+				'code'   => '
+				<div class="wpie-field">
+                    <label class="wpie-field__label has-icon">
+                        <span class="has-tooltip is-pointer on-right can-copy" data-tooltip="Copy"><span class="dashicons dashicons-shortcode is-pointer" ></span></span>
+                        <input type="text" value="[' . esc_attr( $shortcode ) . ' id=\'' . absint( $value->id ) . '\']" readonly>
+                    </label>
+                </div',
 				'tag'    => $tag,
 				'mode'   => $mode,
 				'status' => $status,
@@ -262,11 +268,11 @@ class ListTable extends WP_List_Table {
 
 	public function get_bulk_actions(): array {
 		$actions = [
-			'delete'     => __( 'Delate', 'side-menu-lite' ),
-			'activate'   => __( 'Activate', 'side-menu-lite' ),
-			'deactivate' => __( 'Deactivate', 'side-menu-lite' ),
-			'test_on'    => __( 'Test mode ON', 'side-menu-lite' ),
-			'test_off'   => __( 'Test mode OFF', 'side-menu-lite' ),
+			'delete'     => __( 'Delate', 'sticky-buttons' ),
+			'activate'   => __( 'Activate', 'sticky-buttons' ),
+			'deactivate' => __( 'Deactivate', 'sticky-buttons' ),
+			'test_on'    => __( 'Test mode ON', 'sticky-buttons' ),
+			'test_off'   => __( 'Test mode OFF', 'sticky-buttons' ),
 		];
 
 		return $actions;
@@ -318,10 +324,10 @@ class ListTable extends WP_List_Table {
 			$tag_search = ( $tag_search === 'all' ) ? '' : $tag_search;
 
 			echo '<div class="alignleft actions"><label for="filter-by-tag" class="screen-reader-text">' . esc_html__( 'Filter by tag',
-					'side-menu-lite' ) . '</label>';
+					'sticky-buttons' ) . '</label>';
 			echo '<select name="tag" id="filter-by-tag">';
 			echo '<option value="all"' . selected( 'all', $tag_search, false ) . '>' . esc_html__( 'All',
-					'side-menu-lite' ) . '</option>';
+					'sticky-buttons' ) . '</option>';
 
 			if ( ! empty( $tags ) ) {
 				foreach ( $tags as $tag ) {
@@ -333,7 +339,7 @@ class ListTable extends WP_List_Table {
 				}
 			}
 			echo '</select>';
-			submit_button( __( 'Filter', 'side-menu-lite' ), 'secondary', 'action', false );
+			submit_button( __( 'Filter', 'sticky-buttons' ), 'secondary', 'action', false );
 			echo '</div>';
 		}
 	}

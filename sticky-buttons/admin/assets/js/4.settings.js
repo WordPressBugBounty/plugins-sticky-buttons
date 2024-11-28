@@ -36,9 +36,7 @@ jQuery(document).ready(function ($) {
         });
         $(selectors.item).wowSideMenuLiveBuilder();
 
-        $('.wpie-icon-box select').fontIconPicker({
-            theme: 'fip-darkgrey', emptyIcon: false, allCategoryText: 'Show all',
-        });
+        $('.wpie-icon-box').wowIconPicker();
 
         $(selectors.items_list).sortable({
             items: '> .wpie-item',

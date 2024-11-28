@@ -31,7 +31,7 @@ class ManageCapabilities {
 
                     <div class="wpie-action__btn">
 						<?php
-						submit_button( __( 'Save Change', 'side-menu-lite' ), 'large', 'submit', false );
+						submit_button( __( 'Save Change', 'sticky-buttons' ), 'large', 'submit', false );
 						wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_capabilities' ); ?>
                     </div>
                 </div>

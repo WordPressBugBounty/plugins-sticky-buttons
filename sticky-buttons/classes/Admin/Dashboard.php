@@ -34,7 +34,7 @@ class Dashboard {
 			return $links;
 		}
 		$link          = admin_url( 'admin.php?page=' . WOWP_Plugin::SLUG );
-		$text          = esc_attr__( 'Settings', 'side-menu-lite' );
+		$text          = esc_attr__( 'Settings', 'sticky-buttons' );
 		$settings_link = '<a href="' . esc_url( $link ) . '">' . esc_attr( $text ) . '</a>';
 		array_unshift( $links, $settings_link );
 
@@ -49,7 +49,7 @@ class Dashboard {
 		if ( $pagenow === 'admin.php' && ( ! empty( $page ) && $page === WOWP_Plugin::SLUG ) ) {
 			$text = sprintf(
 			/* translators: 1: Rating link (URL), 2: Plugin name */
-				__( 'Thank you for using <b>%2$s</b>! Please <a href="%1$s" target="_blank">rate us</a>', 'side-menu-lite' ),
+				__( 'Thank you for using <b>%2$s</b>! Please <a href="%1$s" target="_blank">rate us</a>', 'sticky-buttons' ),
 				esc_url( WOWP_Plugin::info( 'url' ) ),
 				esc_attr( WOWP_Plugin::info( 'name' ) )
 			);
@@ -130,7 +130,7 @@ class Dashboard {
                                 class="wpie-version"><?php echo esc_html( WOWP_Plugin::info( 'version' ) ); ?></sup>
                     </h1>
                     <a href="<?php echo esc_url( Link::add_new_item() ); ?>"
-                       class="button button-primary"><?php esc_html_e( 'Add New', 'side-menu-lite' ); ?>
+                       class="button button-primary"><?php esc_html_e( 'Add New', 'sticky-buttons' ); ?>
                     </a>
 					<?php do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); ?>
                 </div>
@@ -164,7 +164,7 @@ class Dashboard {
 
 			if ( $action === 'update' && $page['file'] === 'settings' ) {
 				$id           = ( isset( $_REQUEST["id"] ) ) ? absint( $_REQUEST["id"] ) : '';
-				$page['name'] = __( 'Update', 'side-menu-lite' ) . ' #' . $id;
+				$page['name'] = __( 'Update', 'sticky-buttons' ) . ' #' . $id;
 			} elseif ( $page['file'] === 'settings' && ( $action !== 'new' && $action !== 'duplicate' ) ) {
 				continue;
 			}

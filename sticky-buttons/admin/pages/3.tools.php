@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
                 <h3><span class="dashicons dashicons-admin-users wpie-color-orange"></span>
                     <span><?php esc_html_e( 'Manage Capabilities', 'sticky-buttons' ); ?></span></h3>
                 <div class="inside">
-                    <p><?php esc_html_e( 'Manage the visibility of the plugin for users based on their Manage User Capabilities.', 'side-menu-lite' ); ?></p>
+                    <p><?php esc_html_e( 'Manage the visibility of the plugin for users based on their Manage User Capabilities.', 'sticky-buttons' ); ?></p>
 				    <?php ManageCapabilities::form(); ?>
                 </div>
             </div>

@@ -102,15 +102,17 @@ class WOWP_Admin {
 
 		// include fonticonpicker styles & scripts
 		$url_assets        = WOWP_Plugin::url() . 'vendors/';
-		$slug              = 'notification';
-		$fonticonpicker_js = $url_assets . 'fonticonpicker/fonticonpicker.min.js';
-		wp_enqueue_script( $slug . '-fonticonpicker', $fonticonpicker_js, array( 'jquery' ), '2.0', true );
+		$slug              = WOWP_Plugin::SLUG;
+		$version = WOWP_Plugin::info( 'version' );
 
-		$fonticonpicker_css = $url_assets . 'fonticonpicker/css/fonticonpicker.min.css';
-		wp_enqueue_style( $slug . '-fonticonpicker', $fonticonpicker_css );
+		$fonticonpicker_js = $url_assets . 'fonticonpicker/js/jquery.fonticonpicker.js';
+		wp_enqueue_script( $slug . '-fonticonpicker', $fonticonpicker_js, array( 'jquery' ), '3.1.1', true );
 
-		$fonticonpicker_dark_css = $url_assets . 'fonticonpicker/fonticonpicker.darkgrey.min.css';
-		wp_enqueue_style( $slug . '-fonticonpicker-darkgrey', $fonticonpicker_dark_css );
+		$fonticonpicker_css = $url_assets . 'fonticonpicker/css/base/jquery.fonticonpicker.css';
+		wp_enqueue_style( $slug . '-fonticonpicker', $fonticonpicker_css, null, '3.1.1'  );
+
+		$fonticonpicker_dark_css = $url_assets . 'fonticonpicker/css/themes/dark-grey-theme/jquery.fonticonpicker.darkgrey.css';
+		wp_enqueue_style( $slug . '-fonticonpicker-darkgrey', $fonticonpicker_dark_css, null, '3.1.1' );
 
 		$arg = [
 			'plugin_url' => WOWP_Plugin::url(),

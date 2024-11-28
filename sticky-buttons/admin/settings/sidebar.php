@@ -54,7 +54,7 @@ if ( ! empty( $options['id'] ) ) {
                 <label class="wpie-field__label has-icon">
 					<?php if ( ! empty( $link ) ): ?>
                         <a href="<?php echo esc_url( $link ); ?>" target="_blank">
-                            <span class="wpie-icon wpie_icon-link"></span>
+                            <span class="has-tooltip on-right is-pointer" data-tooltip="Open Link"><span class="wpie-icon wpie_icon-link"></span></span>
                         </a>
 					<?php else: ?>
                         <span class="wpie-icon wpie_icon-link"></span>
@@ -66,7 +66,7 @@ if ( ! empty( $options['id'] ) ) {
 			<?php if ( ! empty( $shortcode ) ) : ?>
                 <div class="wpie-field">
                     <label class="wpie-field__label has-icon">
-                        <span class="dashicons dashicons-shortcode"></span>
+                        <span class="has-tooltip on-right is-pointer can-copy" data-tooltip="Copy"><span class="dashicons dashicons-shortcode" ></span></span>
                         <input type="text" id="shortcode" value="<?php echo esc_attr( $shortcode ); ?>" readonly>
                     </label>
                 </div>

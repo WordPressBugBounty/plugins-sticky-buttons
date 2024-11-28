@@ -22,7 +22,7 @@ class ImporterExporter {
             <p></p>
             <p>
 				<?php
-				submit_button( __( 'Export All Data', 'side-menu-lite' ), 'secondary', 'submit', false ); ?><?php
+				submit_button( __( 'Export All Data', 'sticky-buttons' ), 'secondary', 'submit', false ); ?><?php
 				wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_export_data' ); ?>
             </p>
         </form>
@@ -41,14 +41,14 @@ class ImporterExporter {
             <p>
                 <label>
                     <input type="checkbox" name="wpie_import_update" value="1">
-					<?php esc_html_e( 'Update item if item already exists.', 'side-menu-lite' ); ?>
+					<?php esc_html_e( 'Update item if item already exists.', 'sticky-buttons' ); ?>
                 </label>
 
             </p>
 
             <p>
 				<?php
-				submit_button( __( 'Import', 'side-menu-lite' ), 'secondary', 'submit', false ); ?><?php
+				submit_button( __( 'Import', 'sticky-buttons' ), 'secondary', 'submit', false ); ?><?php
 				wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_import_data' ); ?>
             </p>
         </form>
@@ -67,21 +67,21 @@ class ImporterExporter {
 		}
 
 		if ( ! isset( $_FILES['import_file'] ) || empty( $_FILES['import_file']['name'] ) ) {
-			wp_die( esc_attr__( 'Please select a file to import', 'side-menu-lite' ),
-				esc_attr__( 'Error', 'side-menu-lite' ),
+			wp_die( esc_attr__( 'Please select a file to import', 'sticky-buttons' ),
+				esc_attr__( 'Error', 'sticky-buttons' ),
 				[ 'response' => 400 ] );
 		}
 
 		if ( self::get_file_extension( sanitize_text_field( $_FILES['import_file']['name'] ) ) !== 'json' ) {
 			wp_die(
-				esc_html__( 'Please upload a valid .json file', 'side-menu-lite' ),
-				esc_html__( 'Error', 'side-menu-lite' ),
+				esc_html__( 'Please upload a valid .json file', 'sticky-buttons' ),
+				esc_html__( 'Error', 'sticky-buttons' ),
 				[ 'response' => 400 ] );
 		}
 
 		if ( empty( $_FILES['import_file']['tmp_name'] ) ) {
-			wp_die( esc_attr__( 'Please select a file to import', 'side-menu-lite' ),
-				esc_attr__( 'Error', 'side-menu-lite' ),
+			wp_die( esc_attr__( 'Please select a file to import', 'sticky-buttons' ),
+				esc_attr__( 'Error', 'sticky-buttons' ),
 				[ 'response' => 400 ] );
 		}
 

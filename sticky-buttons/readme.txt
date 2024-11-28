@@ -3,9 +3,9 @@ Contributors: Wpcalc, lobov
 Donate link: https://wordpress.org/plugins/sticky-buttons/
 Tags: sticky buttons, floating buttons, sticky menu, floating menu, float buttons
 Requires at least: 5.5
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 4.0.2
+Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,13 @@ Search for answers and ask your questions at [support center](https://wordpress.
 2. Sticky Buttons 2
 
 == Changelog ==
+= 4.1 =
+* Added: Aria Label attribute for menu item
+* Added: Categories to the icons
+* Updated: main plugin icon
+* Updated: Icon picker
+* Fixed: FontAwesome Icon
+
 = 4.0.2 =
 * Fixed: minor bugs with escaping
 

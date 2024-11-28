@@ -24,13 +24,14 @@ $args = [
 
 
 	// Icons
-	'item_icon'  => [
-		'type'  => 'select',
-		'title' => __( 'Icon', 'sticky-buttons' ),
-		'atts'  => Settings_Helper::icons(),
-		'class' => 'wpie-icon-box',
+	'item_icon' => [
+		'type'    => 'text',
+		'title'   => __( 'Icon', 'sticky-buttons' ),
+		'value'   => 'fas fa-wand-magic-sparkles',
+		'options' => [
+			'class' => 'wpie-icon-box',
+		]
 	],
-
 
 	// Style
 	'color'            => [
@@ -69,6 +70,11 @@ $args = [
 	'link_rel' => [
 		'type'  => 'text',
 		'title' => __( 'Attribute: rel', 'sticky-buttons' ),
+	],
+
+	'aria_label' => [
+		'type'  => 'text',
+		'title' => __( 'Aria label', 'sticky-buttons' ),
 	],
 
 	'item_text' => [

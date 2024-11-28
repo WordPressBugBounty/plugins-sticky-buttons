@@ -89,8 +89,8 @@ return [
 		'title' => __( 'Shadow', 'sticky-buttons' ),
 		'val'   => '',
 		'atts'  => [
-			'shadow' => __( 'Yes', 'side-menu' ),
-			''       => __( 'No', 'side-menu' ),
+			'shadow' => __( 'Yes', 'sticky-buttons' ),
+			''       => __( 'No', 'sticky-buttons' ),
 		],
 	],
 

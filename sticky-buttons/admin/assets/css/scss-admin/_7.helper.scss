@@ -24,11 +24,13 @@
 .has-tooltip {
   position: relative;
   cursor: help;
+  &.is-pointer {
+    cursor: pointer;
+  }
 
   &::before,
   &::after {
     color: #efefef;
-    //font-family: monospace;
     font-size: 12px;
     opacity: 0;
     pointer-events: none;
@@ -39,14 +41,15 @@
     position: absolute;
     top: 0;
     left: 50%;
-    background-color: #DED4FE;
+    background-color: rgba(0,0,0, 0.85);
     border-radius: 2px;
-    color: var(--wpie-color-dark);
+    color: #ffffff;
     content: attr(data-tooltip); //This pulls in the text from the element with the tooltip
     padding: 10px;
     text-transform: none;
     transition: all 0.5s ease;
-    width: 200px;
+    max-width: 200px;
+    width: max-content;
     transform: translateY(calc(-100% - 7px)) translateX(-50%);
     word-wrap: break-word;
     white-space: break-spaces;

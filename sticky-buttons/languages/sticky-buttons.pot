@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sticky Buttons\n"
-"POT-Creation-Date: 2024-08-29 12:43+0300\n"
+"POT-Creation-Date: 2024-11-28 14:32+0200\n"
 "PO-Revision-Date: 2024-08-29 12:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: sticky-buttons.php\n"
@@ -110,26 +110,26 @@ msgid ""
 "Also, you can send us your ideas and suggestions for improving the plugin."
 msgstr ""
 
-#: admin/settings/1.menu.php:49 admin/settings/1.menu.php:138
+#: admin/settings/1.menu.php:49 admin/settings/1.menu.php:139
 #: admin/settings/options/1.menu.php:15
 msgid "Type"
 msgstr ""
 
-#: admin/settings/1.menu.php:50 admin/settings/1.menu.php:139
+#: admin/settings/1.menu.php:50 admin/settings/1.menu.php:140
 #: admin/settings/options/1.menu.php:29
 msgid "Icon"
 msgstr ""
 
-#: admin/settings/1.menu.php:51 admin/settings/1.menu.php:140
+#: admin/settings/1.menu.php:51 admin/settings/1.menu.php:141
 msgid "Style"
 msgstr ""
 
 #: admin/settings/1.menu.php:52 admin/settings/1.menu.php:87
-#: admin/settings/1.menu.php:141 admin/settings/1.menu.php:176
+#: admin/settings/1.menu.php:142 admin/settings/1.menu.php:177
 msgid "Attributes"
 msgstr ""
 
-#: admin/settings/1.menu.php:106
+#: admin/settings/1.menu.php:107
 msgid "Add Button"
 msgstr ""
 
@@ -161,24 +161,28 @@ msgstr ""
 msgid "Label Text"
 msgstr ""
 
-#: admin/settings/options/1.menu.php:43
+#: admin/settings/options/1.menu.php:44
 msgid "Font Color"
 msgstr ""
 
-#: admin/settings/options/1.menu.php:54
+#: admin/settings/options/1.menu.php:55
 msgid "Background"
 msgstr ""
 
-#: admin/settings/options/1.menu.php:61
+#: admin/settings/options/1.menu.php:62
 msgid "ID for element"
 msgstr ""
 
-#: admin/settings/options/1.menu.php:66
+#: admin/settings/options/1.menu.php:67
 msgid "Class for element"
 msgstr ""
 
-#: admin/settings/options/1.menu.php:71
+#: admin/settings/options/1.menu.php:72
 msgid "Attribute: rel"
+msgstr ""
+
+#: admin/settings/options/1.menu.php:77
+msgid "Aria label"
 msgstr ""
 
 #: admin/settings/options/2.style.php:9
@@ -305,7 +309,7 @@ msgstr ""
 msgid "Everywhere"
 msgstr ""
 
-#: admin/settings/options/4.rules.php:11 classes/Admin/ListTable.php:97
+#: admin/settings/options/4.rules.php:11 classes/Admin/ListTable.php:99
 msgid "Shortcode"
 msgstr ""
 
@@ -332,7 +336,7 @@ msgstr ""
 #: admin/settings/options/template.php:8 admin/settings/options/template.php:17
 #: admin/settings/options/template.php:28
 #: admin/settings/options/template.php:49
-#: admin/settings/options/template.php:54 classes/Admin/ListTable.php:96
+#: admin/settings/options/template.php:54 classes/Admin/ListTable.php:98
 msgid "Title"
 msgstr ""
 
@@ -371,27 +375,27 @@ msgstr ""
 msgid "Publish"
 msgstr ""
 
-#: admin/settings/sidebar.php:27 classes/Admin/ListTable.php:102
+#: admin/settings/sidebar.php:27 classes/Admin/ListTable.php:104
 msgid "Status"
 msgstr ""
 
-#: admin/settings/sidebar.php:30 classes/Admin/ListTable.php:265
+#: admin/settings/sidebar.php:30 classes/Admin/ListTable.php:273
 msgid "Deactivate"
 msgstr ""
 
-#: admin/settings/sidebar.php:35 classes/Admin/ListTable.php:99
+#: admin/settings/sidebar.php:35 classes/Admin/ListTable.php:101
 msgid "Test mode"
 msgstr ""
 
-#: admin/settings/sidebar.php:38 classes/Admin/ListTable.php:264
+#: admin/settings/sidebar.php:38 classes/Admin/ListTable.php:272
 msgid "Activate"
 msgstr ""
 
-#: admin/settings/sidebar.php:83 classes/Admin/ListTable.php:58
+#: admin/settings/sidebar.php:83 classes/Admin/ListTable.php:60
 msgid "Delete"
 msgstr ""
 
-#: admin/settings/sidebar.php:91 classes/Admin/ListTable.php:56
+#: admin/settings/sidebar.php:91 classes/Admin/ListTable.php:58
 msgid "Duplicate"
 msgstr ""
 
@@ -415,11 +419,11 @@ msgid ""
 "target=\"_blank\">rate us</a>"
 msgstr ""
 
-#: classes/Admin/Dashboard.php:132
+#: classes/Admin/Dashboard.php:133
 msgid "Add New"
 msgstr ""
 
-#: classes/Admin/Dashboard.php:166
+#: classes/Admin/Dashboard.php:167
 msgid "Update"
 msgstr ""
 
@@ -435,91 +439,96 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: classes/Admin/ImporterExporter.php:71
-msgid "Please upload a valid .json file"
+#: classes/Admin/ImporterExporter.php:70 classes/Admin/ImporterExporter.php:83
+msgid "Please select a file to import"
 msgstr ""
 
-#: classes/Admin/ImporterExporter.php:72
+#: classes/Admin/ImporterExporter.php:71 classes/Admin/ImporterExporter.php:78
+#: classes/Admin/ImporterExporter.php:84
 msgid "Error"
 msgstr ""
 
-#: classes/Admin/ListTable.php:50
+#: classes/Admin/ImporterExporter.php:77
+msgid "Please upload a valid .json file"
+msgstr ""
+
+#: classes/Admin/ListTable.php:52
 msgid "Untitled"
 msgstr ""
 
-#: classes/Admin/ListTable.php:54
+#: classes/Admin/ListTable.php:56
 msgid "Edit"
 msgstr ""
 
-#: classes/Admin/ListTable.php:60
+#: classes/Admin/ListTable.php:62
 msgid "Export"
 msgstr ""
 
-#: classes/Admin/ListTable.php:64
+#: classes/Admin/ListTable.php:66
 msgid "View"
 msgstr ""
 
-#: classes/Admin/ListTable.php:98
+#: classes/Admin/ListTable.php:100
 msgid "Tag"
 msgstr ""
 
-#: classes/Admin/ListTable.php:100
+#: classes/Admin/ListTable.php:102
 msgid "The item will only be displayed for administrators."
 msgstr ""
 
-#: classes/Admin/ListTable.php:103
+#: classes/Admin/ListTable.php:105
 msgid "Display item on the Frontend."
 msgstr ""
 
-#: classes/Admin/ListTable.php:138
+#: classes/Admin/ListTable.php:140
 msgid "UnTitle"
 msgstr ""
 
-#: classes/Admin/ListTable.php:139
+#: classes/Admin/ListTable.php:141
 msgid "Click for Deactivate."
 msgstr ""
 
-#: classes/Admin/ListTable.php:140
+#: classes/Admin/ListTable.php:142
 msgid "Click for Activate."
 msgstr ""
 
-#: classes/Admin/ListTable.php:141 classes/Admin/ListTable.php:150
+#: classes/Admin/ListTable.php:143 classes/Admin/ListTable.php:152
 msgid "OFF"
 msgstr ""
 
-#: classes/Admin/ListTable.php:143 classes/Admin/ListTable.php:152
+#: classes/Admin/ListTable.php:145 classes/Admin/ListTable.php:154
 msgid "ON"
 msgstr ""
 
-#: classes/Admin/ListTable.php:147
+#: classes/Admin/ListTable.php:149
 msgid "Click for OFF."
 msgstr ""
 
-#: classes/Admin/ListTable.php:148
+#: classes/Admin/ListTable.php:150
 msgid "Click for ON."
 msgstr ""
 
-#: classes/Admin/ListTable.php:263
+#: classes/Admin/ListTable.php:271
 msgid "Delate"
 msgstr ""
 
-#: classes/Admin/ListTable.php:266
+#: classes/Admin/ListTable.php:274
 msgid "Test mode ON"
 msgstr ""
 
-#: classes/Admin/ListTable.php:267
+#: classes/Admin/ListTable.php:275
 msgid "Test mode OFF"
 msgstr ""
 
-#: classes/Admin/ListTable.php:318
+#: classes/Admin/ListTable.php:326
 msgid "Filter by tag"
 msgstr ""
 
-#: classes/Admin/ListTable.php:321
+#: classes/Admin/ListTable.php:329
 msgid "All"
 msgstr ""
 
-#: classes/Admin/ListTable.php:334
+#: classes/Admin/ListTable.php:342
 msgid "Filter"
 msgstr ""
 
@@ -547,27 +556,27 @@ msgstr ""
 msgid "Message type"
 msgstr ""
 
-#: classes/Admin/SupportForm.php:62
+#: classes/Admin/SupportForm.php:61
 msgid "Issue"
 msgstr ""
 
-#: classes/Admin/SupportForm.php:63
+#: classes/Admin/SupportForm.php:62
 msgid "Idea"
 msgstr ""
 
-#: classes/Admin/SupportForm.php:71
+#: classes/Admin/SupportForm.php:70
 msgid "Plugin"
 msgstr ""
 
-#: classes/Admin/SupportForm.php:80
+#: classes/Admin/SupportForm.php:79
 msgid "License Key"
 msgstr ""
 
-#: classes/Admin/SupportForm.php:91
+#: classes/Admin/SupportForm.php:90
 msgid "Enter Your Message"
 msgstr ""
 
-#: classes/Admin/SupportForm.php:102
+#: classes/Admin/SupportForm.php:101
 msgid "Send to Support"
 msgstr ""
 

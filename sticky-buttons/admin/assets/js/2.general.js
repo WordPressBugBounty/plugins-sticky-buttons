@@ -46,4 +46,18 @@ jQuery(document).ready(function($) {
         $(settings).eq(index).addClass('is-active');
     });
 
+    // Copy
+    $('.can-copy').on('click', function (){
+        const parent = $(this).parent();
+        const input = $(parent).find('input');
+        const originalTooltip = $(this).attr("data-tooltip");
+        const currentElement = $(this);
+
+        navigator.clipboard.writeText(input.val()).then(() => {
+            currentElement.attr("data-tooltip", "Copied");
+            setTimeout(function () {
+                currentElement.attr("data-tooltip", originalTooltip);
+            }, 1000);
+        });
+    });
 });

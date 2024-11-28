@@ -346,8 +346,9 @@ class Content {
 		$button_id    = $param['menu_1']['button_id'][ $i ];
 		$id_add       = ! empty( $button_id ) ? ' id="' . esc_attr( $button_id ) . '"' : '';
 		$link_rel     = ! empty( $param['menu_1']['link_rel'][ $i ] ) ? ' rel="' . esc_attr( $param['menu_1']['link_rel'][ $i ] ) . '"' : '';
+		$aria_label     = ! empty( $param['menu_1']['aria_label'][ $i ] ) ? ' aria-label="' . esc_attr( $param['menu_1']['aria_label'][ $i ] ) . '"' : '';
 
-		return $id_add . $class_add . $link_rel;
+		return $id_add . $class_add . $link_rel.$aria_label;
 	}
 
 }

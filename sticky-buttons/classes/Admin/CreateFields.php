@@ -29,10 +29,14 @@ class CreateFields {
 		$args       = $this->page_options[ $name ];
 		$key        = $this->get_key( $name );
 		$data_field = $name;
-		$default    = $args['val'] ?? '';
-		if ( empty( $this->options['tool_id'] ) ) {
-			$default = $args['val'] ?? '';
+
+		$opt_val = $args['val'] ?? $args['value'] ?? '';
+		$default = $opt_val;
+
+		if (empty($this->options['tool_id'])) {
+			$default = $opt_val;
 		}
+
 		$opt_key     = $this->get_opt_key( $name );
 		$value       = $this->get_the_value( $name, $default );
 		$class       = ! empty( $args['class'] ) ? ' ' . $args['class'] : '';
@@ -52,7 +56,6 @@ class CreateFields {
 		} else {
 			$template .= $this->get_template( $args );
 		}
-
 		$template .= '</div>';
 
 		$content = str_replace( [
@@ -87,8 +90,8 @@ class CreateFields {
 	}
 
 	private function output( $content ): void {
-		$allowed_post_tags = wp_kses_allowed_html( 'post' );
-		$allowed_html = array(
+		$allowed_post_tags   = wp_kses_allowed_html( 'post' );
+		$allowed_html        = array(
 			'input'    => array(
 				'type'               => [],
 				'data-field'         => [],
@@ -105,10 +108,10 @@ class CreateFields {
 				'data-alpha-enabled' => [],
 			),
 			'textarea' => [
-				'placeholder'        => [],
-				'data-field'         => [],
-				'name'               => [],
-				'class'              => [],
+				'placeholder' => [],
+				'data-field'  => [],
+				'name'        => [],
+				'class'       => [],
 			],
 			'select'   => [
 				'name'       => [],
@@ -125,9 +128,9 @@ class CreateFields {
 
 		);
 		$allowed_post_tags[] = $allowed_html;
-		$merged_allowed_tags = array_merge($allowed_post_tags, $allowed_html);
+		$merged_allowed_tags = array_merge( $allowed_post_tags, $allowed_html );
 
-		echo wp_kses($content, $merged_allowed_tags);
+		echo wp_kses( $content, $merged_allowed_tags );
 	}
 
 	private function get_template( $args ): string {
@@ -177,17 +180,20 @@ class CreateFields {
 		$key        = $this->get_key( $args['name'] );
 		$data_field = $args['name'] ?? 'wpie-field';
 
-		$default = $args['val'] ?? '';
-		if ( empty( $this->options['id'] ) ) {
-			$default = $args['val'] ?? '';
+		$opt_val = $args['val'] ?? $args['value'] ?? '';
+		$default = $opt_val;
+
+		if (empty($this->options['tool_id'])) {
+			$default = $opt_val;
 		}
+
 //		$value       = $this->options[ $key ] ?? $default;
 		$value       = $this->get_the_value( $args['name'], $default );
 		$label_class = isset( $args['label'] ) ? '' : 'screen-reader-text';
 		$label       = ! empty( $args['label'] ) ? $args['label'] : '';
 		$checked     = checked( "1", $value, false );
 		$toogle      = isset( $args['toggle'] ) ? ' has-checked' : '';
-		$tooltip = isset($args['tooltip']) ? '<sup class="has-tooltip wpie-color-dark" data-tooltip="' . esc_attr( $args['tooltip'] ) . '">ℹ</sup>' : '';
+		$tooltip     = isset( $args['tooltip'] ) ? '<sup class="has-tooltip wpie-color-dark" data-tooltip="' . esc_attr( $args['tooltip'] ) . '">ℹ</sup>' : '';
 		$template    = '<div class="wpie-field__title' . esc_attr( $toogle ) . '">
 					<label class="wpie-field__title-label">
 					<input type="checkbox" data-field="{{data_field}}" {{checked}}>
@@ -264,20 +270,21 @@ class CreateFields {
 
 
 	private function get_attributes( $args, $value ) {
-		if ( empty( $args['atts'] ) || ! is_array( $args['atts'] ) ) {
+		$arr = $args['atts'] ?? $args['options'] ?? '';
+
+		if (empty($arr) || !is_array($arr)) {
 			return false;
 		}
 		$atts = '';
 
-		foreach ( $args['atts'] as $key => $val ) {
+		foreach ($arr as $key => $val) {
 			if ( $args['type'] === 'select' ) {
 				if ( strrpos( $key, '_start' ) ) {
 					$atts .= '<optgroup label="' . esc_attr( $val ) . '">';
 				} elseif ( strrpos( $key, '_end' ) ) {
 					$atts .= '</optgroup>';
 				} else {
-					$atts .= '<option value="' . esc_attr( $key ) . '"' . selected( $value, $key,
-							false ) . '>' . esc_html( $val ) . '</option>';
+					$atts .= '<option value="' . esc_attr( $key ) . '"' . selected( $value, $key,false ) . '>' . esc_html( $val ) . '</option>';
 				}
 			} else {
 				$atts .= ' ' . esc_attr( $key ) . '="' . esc_attr( $val ) . '"';
