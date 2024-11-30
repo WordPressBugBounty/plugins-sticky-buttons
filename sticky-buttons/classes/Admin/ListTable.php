@@ -176,7 +176,7 @@ class ListTable extends WP_List_Table {
                         <span class="has-tooltip is-pointer on-right can-copy" data-tooltip="Copy"><span class="dashicons dashicons-shortcode is-pointer" ></span></span>
                         <input type="text" value="[' . esc_attr( $shortcode ) . ' id=\'' . absint( $value->id ) . '\']" readonly>
                     </label>
-                </div',
+                </div>',
 				'tag'    => $tag,
 				'mode'   => $mode,
 				'status' => $status,
