@@ -27,6 +27,7 @@ class Content {
 		return $this->create();
 	}
 
+
 	private function create(): string {
 		$id    = $this->id;
 		$param = $this->param;
@@ -141,8 +142,8 @@ class Content {
 					continue;
 				}
 			}
-			$style = '--color:' . esc_attr( $param['menu_1']['color'][ $i ] ) . ';';
-			$style .= '--bg:' . esc_attr( $param['menu_1']['bcolor'][ $i ] ) . ';';
+			$style = '--color: ' . esc_attr( $param['menu_1']['color'][ $i ] ) . '; ';
+			$style .= '--bg: ' . esc_attr( $param['menu_1']['bcolor'][ $i ] ) . ';';
 
 			$elements .= '<li style="' . esc_attr( $style ) . '">';
 			$elements .= $this->create_element( $param, $i, $item_type );
