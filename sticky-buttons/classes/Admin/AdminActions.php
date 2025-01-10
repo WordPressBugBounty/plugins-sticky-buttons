@@ -52,8 +52,9 @@ class AdminActions {
 	public static function verify( $name ): bool {
 		$nonce_action = WOWP_Plugin::PREFIX . '_nonce';
 		$nonce        = isset( $_REQUEST[ $name ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ $name ] ) ) : '';
+		$capability  = ManageCapabilities::get_capability();
 
-		return ( ! empty( $nonce ) ) && ( wp_verify_nonce( $nonce, $nonce_action ) || current_user_can( 'manage_options' ) );
+		return ( ! empty( $nonce ) &&  wp_verify_nonce( $nonce, $nonce_action ) && current_user_can( $capability ) );
 	}
 
 	private static function check_name(): string {
