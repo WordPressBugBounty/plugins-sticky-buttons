@@ -125,6 +125,10 @@ class CreateFields {
 			'optgroup' => [
 				'label' => [],
 			],
+			'div' => [
+				'class' => [],
+				'data-field-box' => [],
+			],
 
 		);
 		$allowed_post_tags[] = $allowed_html;
