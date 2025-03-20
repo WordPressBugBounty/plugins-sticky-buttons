@@ -48,8 +48,10 @@
   position: absolute;
   bottom: 0;
   display: flex;
-  margin-inline-start: calc(40px + 1rem - 5px);
+  margin-inline-start: calc(40px + 1rem);
   padding-bottom: 2px;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .wpie-links a {
@@ -57,15 +59,20 @@
   flex-direction: column;
   font-size: 12px;
   align-items: center;
-  padding: 5px;
+  padding: 5px 0;
   transition: all 0.15s linear;
   color: var(--wpie-color-blue);
   font-weight: 600;
-  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+.wpie-links-divider {
+  color: var(--wpie-color-border);
 }
 
 .wpie-links a:hover {
   color: #14102C;
+  text-decoration: none;
 }
 
 .wpie-links .codericon,

@@ -1,11 +1,11 @@
-=== Sticky Buttons - floating buttons builder ===
+=== Sticky Buttons - Floating Buttons Builder ===
 Contributors: Wpcalc, lobov
-Donate link: https://wordpress.org/plugins/sticky-buttons/
+Donate link: https://wow-estore.com/item/sticky-buttons-pro/
 Tags: sticky buttons, floating buttons, sticky menu, floating menu, float buttons
 Requires at least: 5.5
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 4.1.3
+Stable tag: 4.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,178 +13,258 @@ Increase user engagement by incorporating sticky buttons that highlight relevant
 
 == Description ==
 
-The Sticky Buttons plugin for WordPress allows you to easily create floating buttons that remain visible to users as they browse your site. These attention-grabbing buttons provide quick access to key pages or actions, enhancing user experience and encouraging interaction with important content.
+[Try Free Demo](https://lite.wow-estore.com/sticky-buttons/) | [🚀 Try Pro Demo](https://demo.wow-estore.com/sticky-buttons-pro/) | [Documentation](https://wow-estore.com/documentations/sticky-buttons/)
 
-= Main features =
+**Sticky Buttons** is a **free WordPress plugin** that lets you quickly create customizable floating buttons. These attractive buttons stay visible as visitors scroll your site, guiding users to essential actions and boosting engagement effortlessly.
+
+### 🌟 Key Benefits:
+
+- Easily create eye-catching floating buttons
+- Increase user interaction and conversions
+- Lightweight & optimized for performance
+- Simple setup – works seamlessly with any theme
+
+✅ **Transform user experience with Sticky Buttons!**
+
+= Main Features =
 
 Enhance your website’s navigation with the Sticky Buttons plugin for WordPress. Designed to simplify browsing, this plugin helps visitors easily find the information they need and navigate between sections with ease. Site administrators can fully customize the button menu to fit their specific needs.
 
-*   Create an unlimited number of sticky buttons
-*   Access over 2000 Font Awesome 6 icons
-*   Position the buttons anywhere on the screen
-*   Choose from 4 different button shapes
-*   Add custom labels to buttons
-*   Adjust the spacing between buttons
-*   Set individual colors for each button
-*   Insert any type of link
-*   Customize button backgrounds
-*   Add custom IDs and classes for advanced styling
+### 🎨 **Customization & Design**
+- Create **unlimited sticky buttons**.
+- Choose from **4 different button shapes**.
+- Set **individual button colors and backgrounds**.
+- Customize button spacing and placement anywhere on the screen.
+- Access over **2000 Font Awesome 6 icons**.
+- Add **custom labels** to each button.
+
+### 🔗 **Links & Accessibility**
+- Insert **any type of link** to buttons.
+- Add custom attributes: `ID`, `class`, `aria-label`.
+- Mobile-friendly and responsive design.
+
+### ⚡ **Performance & SEO**
+- Optimized for speed – doesn't slow your website.
+- SEO-friendly button structure to improve indexing.
+
+--
 
 = Ideal Uses for Sticky Buttons =
 
-*   Streamline site navigation
-*   Create social media panels
-*   Set up user menus
-*   Design multilingual navigation panels
-*   Build a contact menu
-*   Add supplementary panels for extra information
-*   Customize adaptive menus for desktop and mobile devices
-*   Create sticky feedback panels and more
+- Enhance site navigation
+- Build quick-access menus
+- Display contact and feedback buttons
+- Integrate social sharing icons
+- Create multilingual navigation panels
+- Highlight promotions and special offers
+- Improve mobile browsing experience
+- And much more!
 
-[Preview of the Pro version](https://demo.wow-estore.com/sticky-buttons-pro/)
+--
 
 = Pro Version =
 
-Unlock the full potential of the Sticky Buttons plugin with the Pro version, offering advanced features and customization options. The Pro version enables web administrators to:
+Unlock the full power of Sticky Buttons with advanced features designed to elevate your site's engagement and user experience:
 
-*   Create an unlimited number of sticky buttons
-*   Access over 2000 Font Awesome 6 icons
-*   Set custom icons
-*   Choose from 3 different button sizes
-*   Apply 8 unique animations
-*   Open links in new windows
-*   Keep button labels visible at all times with the "Hold Label Open" option
-*   Generate next and previous post links within a category
-*   Add sharing options for 36 different social media platforms
-*   Offer real-time page translation
-*   Provide print-friendly links
-*   Enable direct downloads for resources like ebooks or software
-*   Configure popups for button interactions
-*   Adjust the font size or zoom level of the entire page
-*   Enable easy bookmarking with a single click
-*   Copy the page URL to the clipboard for easy sharing
-*   Use ScrollSpy for seamless navigation between page sections
-*   Add smooth scrolling effects to enhance user experience
-*   Create "Go Back" and "Go Forward" navigation buttons
-*   Control button visibility based on user scroll positions
-*   Set timers to show or hide buttons after specific durations
-*   Display buttons conditionally based on device, user type, language, or specific pages
-*   Activate buttons by referrer URL or URL content
-*   Schedule button visibility for specific times
-*   Hide buttons based on browser type
-*   And much more...
+### 🎨 **More Customization**
+- **Hold Label Open** – Keep button labels always visible.
+- **Custom Icons** – Upload your own icons to match your brand.
+- **Icon Animations** – Enhance engagement with **7 elegant animation effects**.
 
-= Maximize Results with Other Plugins =
-*   [Popup Box – Create engaging popups](https://wordpress.org/plugins/popup-box/)
-*   [Counter Box – Create counters, timers, and countdowns](https://wordpress.org/plugins/counter-box/)
-*   [Button Generator – Build custom buttons easily](https://wordpress.org/plugins/button-generation/)
-*   [Herd Effects – Add fake notifications and social proof](https://wordpress.org/plugins/mwp-herd-effect/)
-*   [Floating Button – Add more floating buttons](https://wordpress.org/plugins/floating-button/)
-*   [Side Menu Lite – Enhance navigation with sticky buttons](https://wordpress.org/plugins/side-menu-lite/)
-*   [Bubble Menu – Create circular floating menus](https://wordpress.org/plugins/bubble-menu/)
-*   [Float Menu – Add a dynamic side menu](https://wordpress.org/plugins/float-menu/)
-*   [Modal Window – Design custom modal windows](https://wordpress.org/plugins/modal-window/)
-*   [Calculator Builder – Create custom calculators](https://wordpress.org/plugins/calculator-builder/)
+### 🔗 **Enhanced Functional Links**
+- **Translate Page** – Instant, one-click website translation.
+- **Social Sharing** – Easy sharing via Facebook, Twitter, LinkedIn, and more.
+- **Next/Previous Post** – Smooth navigation between posts.
+- **Forced Download** – Direct file downloads (ebooks, PDFs, software).
+- **Smooth Scrolling** – Effortlessly scroll to specific page sections.
+- **Scroll to Top/Bottom** – Quick page navigation buttons.
+- **Print Page** – Convenient printing for your content.
+- **Font Size Adjuster** – Allow users to customize page readability.
+- **Bookmark & URL Sharing** – Simple bookmarking and URL copy actions.
 
+### 🎯 **Advanced Display Rules**
+- **Scroll-Based Visibility** – Dynamically show or hide buttons based on scroll position.
+- **Timer Action** – Control button visibility after a specified time interval.
+- **User Role Permissions** – Show or hide buttons based on user roles.
+- **Multilingual Support** – Custom menus tailored for different languages.
+- **Scheduled Visibility** – Automatically display buttons at specific dates and times.
+- **Activate by URL** – Display buttons conditionally based on URL parameters or specific pages.
+- **Activate by Referrer URL** – Control button visibility based on visitors' referrer.
+- **Browser Compatibility Control** – Automatically hide buttons for outdated browsers.
 
-By integrating Sticky Buttons with these complementary plugins, you can create a more interactive and user-friendly website that encourages engagement and enhances navigation.
+🚀 [Upgrade to Sticky Buttons Pro](https://wow-estore.com/item/sticky-buttons-pro/) and supercharge your website!
+
+--
+
+= 🚀 Maximize Results with Complementary Plugins =
+
+Enhance your website's functionality and user engagement by combining **Sticky Buttons** with these powerful plugins:
+
+- [Popup Box](https://wordpress.org/plugins/popup-box/) – Create engaging, custom popups to boost conversions.
+- [Counter Box](https://wordpress.org/plugins/counter-box/) – Easily add counters, timers, and countdowns to highlight urgency.
+- [Button Generator](https://wordpress.org/plugins/button-generation/) – Quickly build stylish custom buttons.
+- [Herd Effects](https://wordpress.org/plugins/mwp-herd-effect/) – Display notifications and social proof to increase credibility.
+- [Floating Button](https://wordpress.org/plugins/floating-button/) – Add even more interactive floating buttons.
+- [Side Menu Lite](https://wordpress.org/plugins/side-menu-lite/) – Enhance your site's navigation with sticky side menus.
+- [Bubble Menu](https://wordpress.org/plugins/bubble-menu/) – Create intuitive, circular floating menus for easier navigation.
+- [Float Menu](https://wordpress.org/plugins/float-menu/) – Add dynamic, customizable side menus that improve site accessibility.
+- [Modal Window](https://wordpress.org/plugins/modal-window/) – Design beautiful, custom modal windows for capturing leads or displaying content.
+- [Calculator Builder](https://wordpress.org/plugins/calculator-builder/) – Build custom interactive calculators for your users.
+- [Flexi Menu](https://wordpress.org/plugins/flexi-menu/) – advanced floating and sticky menus
+
+✅ **Combine Sticky Buttons with these plugins to build a highly interactive, engaging, and user-friendly website.**
 
 = Support =
-Search for answers and ask your questions at [support center](https://wordpress.org/support/plugin/sticky-buttons)
+Need help? Ask questions and get quick answers in our [support center](https://wordpress.org/support/plugin/sticky-buttons).
+
+== Frequently Asked Questions ==
+
+= The buttons do not appear on my website. How can I fix this? =
+If the buttons don't appear, it's often due to **caching**. Follow these steps to resolve the issue:
+
+1. **Clear your browser cache** – Press `Ctrl + Shift + R` (Windows) or `Cmd + Shift + R` (Mac) to reload without cache.
+2. **Clear your WordPress cache** – If you're using a caching plugin (like WP Rocket, W3 Total Cache, or LiteSpeed Cache), clear the cache from its settings.
+3. **Purge server cache** – If your hosting uses caching (e.g., Cloudflare, SiteGround, Nginx), clear the cache from your hosting control panel.
+4. **Disable caching temporarily** – If the issue persists, deactivate your caching plugin temporarily and verify whether the buttons appear.
+
+= Buttons are visible only to administrators, not regular users. Why? =
+Check if **"Test Mode"** is enabled. When Test Mode is activated, sticky buttons are visible **only to site administrators** and not to regular visitors.
+
+= Can I change the position of the sticky buttons? =
+Yes! You can easily position the buttons on the **left, right, top, or bottom** of the screen from the plugin settings.
+
+= Can I display buttons only on certain pages? =
+Yes! In the **Lite version**, you can:
+- **Show buttons sitewide** (on all pages).
+- **Insert buttons manually** using the shortcode `[Sticky-Buttons id="1"]` to display them only on specific pages or posts.
+
+In the **Pro version**, you gain advanced controls to display buttons based on categories, post types, specific pages, user roles, and more.
+
+= Can I use multiple sets of buttons on the same page? =
+Absolutely! You can create and display **multiple sets of sticky buttons** simultaneously. Each set can be individually configured and controlled.
+
+= How do I use Sticky Buttons on a multisite? =
+If you're running a WordPress multisite network, **do not activate the plugin network-wide**. Instead, activate Sticky Buttons separately **on each individual site** where you plan to use it.
+
+= Do Sticky Buttons slow down my website? =
+No, **Sticky Buttons is lightweight, optimized for speed, and designed for minimal impact** on your site's performance.
 
 == Installation Instructions ==
 
-1.  **Option 1:**
-    Go to the `Plugins` -\> `Add New` section in your WordPress dashboard (`wp-admin`). Search for "Sticky Buttons" and click "Install".
-2.  **Option 2:**
-    Download the plugin's zip file. In your WordPress dashboard, navigate to `Plugins` -\> `Add New` -\> `Upload Plugin`, then select the downloaded zip file and click "Install Now". Alternatively, unzip the file and upload the folder to the `/wp-content/plugins/` directory using FTP.
-3.  Once the plugin is installed, click `Activate` from either the installation page or the `Plugins` list in your dashboard.
-4.  After activation, a new `Sticky Buttons` section will appear in your main menu on the left side of your dashboard.
-5.  Click `Add New` to start creating your first menu.
-6.  Configure your menu settings as desired.
-7.  Click `Save` to finalize your menu setup.
+### 📌 Option 1: Install via WordPress Dashboard
+
+1. Go to your WordPress admin dashboard (`wp-admin`).
+2. Navigate to `Plugins` → `Add New`.
+3. Search for **"Sticky Buttons"** and click **"Install Now"**.
+4. After installation, click **"Activate"**.
+
+### 📌 Option 2: Manual Installation (Upload)
+
+1. Download the plugin's zip file.
+2. In your WordPress dashboard, go to `Plugins` → `Add New` → `Upload Plugin`.
+3. Select the downloaded zip file, then click **"Install Now"**.
+4. After installation, click **"Activate"**.
+
+**Alternatively (FTP):**
+
+- Unzip the downloaded plugin file.
+- Upload the extracted `sticky-buttons` folder to your server's `/wp-content/plugins/` directory via FTP.
+- Go to `Plugins` in your WordPress dashboard and click **"Activate"** next to Sticky Buttons.
+
+### 🚀 Getting Started
+
+1. Once activated, a new `Sticky Buttons` section will appear in your WordPress admin menu (on the left side).
+2. Click **"Add New"** to create your first button set.
+3. Configure your buttons as needed.
+4. Click **"Save"** to finalize and display your sticky buttons on the website.
 
 == Screenshots ==
 1. Sticky Buttons 1
 2. Sticky Buttons 2
 
 == Changelog ==
+
+= 4.1.4 =
+- Updated: Helpful links in the settings page.
+- Updated: `wp-color-picker-alpha` to version **3.0.4**.
+
 = 4.1.3 =
-* Added: link to the version
-* Fixed: class CreateFields
+- Added: Link to the plugin version.
+- Fixed: Issue with class `CreateFields`.
 
 = 4.1.2 =
-* Fixed: Nonce verification logic for improved security.
+- Fixed: Improved nonce verification logic for enhanced security.
 
 = 4.1.1 =
-* Updated: FontAwesome Icon 6.7.1
-* Fixed: minor bug with a creating database
+- Updated: FontAwesome Icons to version **6.7.1**.
+- Fixed: Minor database creation bug.
 
 = 4.1 =
-* Added: Aria Label attribute for menu item
-* Added: Categories to the icons
-* Updated: main plugin icon
-* Updated: Icon picker
-* Fixed: FontAwesome Icon
+- Added: `aria-label` attribute for accessibility improvements.
+- Added: Icon categories for easier navigation.
+- Updated: Main plugin icon.
+- Updated: Icon picker functionality.
+- Fixed: FontAwesome Icon issues.
 
 = 4.0.2 =
-* Fixed: minor bugs with escaping
+- Fixed: Minor bugs related to data escaping.
 
 = 4.0.1 =
-* Fixed: FontPicker icon style
+- Fixed: FontPicker icon style issue.
 
 = 4.0 =
-*   **Added:** Option to set the location of buttons.
-*   **Added:** Option to add shadows to buttons.
-*   **Added:** Ability to change the status and mode of a menu directly from the menu list.
-*   **Added:** Bulk option to change the status and mode for multiple selected menus from the list.
-*   **Updated:** Upgraded FontAwesome icons to version 6.6.
-*   **Improvement:** Redesigned interface - revamped the plugin's dashboard for a more intuitive and user-friendly experience.
+🚀 **Major Update**
+- Added: Option to set button positions.
+- Added: Button shadow customization option.
+- Added: Ability to change menu status and mode directly from the menu list.
+- Added: Bulk edit option for changing status and mode of multiple menus at once.
+- Updated: FontAwesome icons upgraded to **6.6**.
+- Improved: Completely redesigned plugin interface for an intuitive, user-friendly experience.
 
 = 3.2.4 =
-* Fixed: minor bug with nonce
+- Fixed: Minor nonce-related bug.
 
 = 3.2.3 =
-* Fixed: sanitize field link
+- Fixed: Improved field link sanitization.
 
 = 3.2.2 =
-* Fixed: create database
+- Fixed: Database creation bug.
 
 = 3.2.1 =
-* Fixed: dynamic property for PHP 8.2
+- Fixed: Compatibility issue with dynamic properties for PHP 8.2.
 
 = 3.2 =
-* Updated: FontAwesome to version 6.4.2
+- Updated: FontAwesome to version **6.4.2**.
 
 = 3.1.1 =
-* Fixed: minor bug in page-list
+- Fixed: Minor bug in the page-list functionality.
 
 = 3.1 =
-* Added: display menu on the page with the shortcode.
-* Added: Export/import function
-* Updated: Font Awesome Icon to version 6.2.1
+- Added: Shortcode support for displaying the menu on specific pages.
+- Added: Export/import functionality.
+- Updated: FontAwesome icons to version **6.2.1**.
 
 = 3.0.1 =
-* Fixed: minor bug
+- Fixed: Minor bug fixes.
 
 = 3.0 =
-* Changed: Admin style
-* Added: option 'Attribute: rel' to link
-* Added: option 'Diactivated' for deactivate the menu
-* Added: option 'Test Mode' - menu will show only for admin
-
+🚀 **Major Update**
+- Changed: Updated admin interface style.
+- Added: Option to set the `rel` attribute for links.
+- Added: "Deactivated" option to easily disable menus.
+- Added: "Test Mode" feature (menus visible only to site administrators).
 
 = 2.1 =
-* Changed: Font Awesome Icon 5.15.3
+- Updated: FontAwesome icons to version **5.15.3**.
 
 = 2.0.1 =
-* Fixed: minor bug when the item deleting
+- Fixed: Minor bug when deleting items.
 
 = 2.0 =
-* Updated: Font Awesome Icons to version 5.14
+- Updated: FontAwesome icons to version **5.14**.
 
 = 1.1 =
-* Fixed: Conflict with old version Font Awesome
+- Fixed: Conflict with older FontAwesome versions.
 
 = 1.0 =
-* Initial release
+- Initial release.
