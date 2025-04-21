@@ -3,7 +3,7 @@ Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/sticky-buttons-pro/
 Tags: sticky buttons, floating buttons, sticky menu, floating menu, float buttons
 Requires at least: 5.5
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.4
 Stable tag: 4.1.4
 License: GPLv2 or later
