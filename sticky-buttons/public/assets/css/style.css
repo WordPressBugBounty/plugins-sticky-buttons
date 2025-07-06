@@ -309,5 +309,3 @@
 .sticky-buttons.-rotate-zoom a.is-active .sb-label, .sticky-buttons.-rotate-zoom a:focus .sb-label, .sticky-buttons.-rotate-zoom a:hover .sb-label {
   transform: rotate(360deg) scale(1, 1);
 }
-
-/*# sourceMappingURL=style.css.map */

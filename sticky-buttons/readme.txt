@@ -5,7 +5,7 @@ Tags: sticky buttons, floating buttons, sticky menu, floating menu, float button
 Requires at least: 5.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.1.4
+Stable tag: 4.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,10 @@ No, **Sticky Buttons is lightweight, optimized for speed, and designed for minim
 2. Sticky Buttons 2
 
 == Changelog ==
+= 4.1.5 =
+* Improved: Reorganized method order in DBManager class for better readability and maintenance
+* Improved: Minor SQL formatting for consistency
+* Cleaned: Minor code style improvements according to WordPress Coding Standards (WPCS)
 
 = 4.1.4 =
 - Updated: Helpful links in the settings page.
