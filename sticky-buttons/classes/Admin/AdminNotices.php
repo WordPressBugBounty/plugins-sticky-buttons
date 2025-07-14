@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Class AdminNotices
+ *
+ * This class handles the admin notices for the plugin.
+ *
+ * @package    WowPlugin
+ * @subpackage Admin
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
+ * @copyright  2024 Dmytro Lobov
+ * @license    GPL-2.0+
+ *
+ */
+
 namespace StickyButtons\Admin;
 
 use StickyButtons\WOWP_Plugin;
@@ -15,6 +28,7 @@ class AdminNotices {
 
 	public static function admin_notice(): bool {
 
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended -- Nonce verification is handled elsewhere.
 		if ( ! isset( $_GET['page'] ) ) {
 			return false;
 		}
@@ -23,9 +37,12 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( ! empty( $_GET['notice'] ) && $_GET['notice'] === 'save_item' ) {
+		$notice = isset( $_GET['notice'] ) ? sanitize_text_field( wp_unslash( $_GET['notice'] ) ) : '';
+		// phpcs:enable
+
+		if ( ! empty( $notice ) && $notice === 'save_item' ) {
 			self::save_item();
-		} elseif ( ! empty( $_GET['notice'] ) && $_GET['notice'] === 'remove_item' ) {
+		} elseif ( ! empty( $notice ) && $notice === 'remove_item' ) {
 			self::remove_item();
 		}
 
@@ -33,14 +50,15 @@ class AdminNotices {
 	}
 
 	public static function save_item(): void {
-		$nonce = isset( $_REQUEST['nonce'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ) : '';
+		if ( isset( $_REQUEST['nonce'] ) ) {
+			$nonce = sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) );
 
-		if ( ! empty( $nonce ) && wp_verify_nonce( $nonce, 'save-item' ) ) {
-			$text = __( 'Item Saved', 'sticky-buttons' );
-			echo '<div class="wpie-notice notice notice-success is-dismissible">' . esc_html( $text ) . '</div>';
+			if ( wp_verify_nonce( $nonce, 'save-item' ) ) {
+				$text = __( 'Item Saved', 'sticky-buttons' );
+				echo '<div class="wpie-notice notice notice-success is-dismissible">' . esc_html( $text ) . '</div>';
+			}
 		}
 	}
-
 	public static function remove_item(): void {
 		$text = __( 'Item Remove', 'sticky-buttons' );
 		echo '<div class="wpie-notice notice notice-warning is-dismissible">' . esc_html( $text ) . '</div>';

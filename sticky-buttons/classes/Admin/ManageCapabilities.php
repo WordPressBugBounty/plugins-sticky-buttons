@@ -72,11 +72,13 @@ class ManageCapabilities {
 			return false;
 		}
 
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verification is handled elsewhere.
 		if ( ! isset( $_POST['plugin_capability'] ) ) {
 			return false;
 		}
 
 		$capability = sanitize_text_field( wp_unslash( $_POST['plugin_capability'] ) );
+		// phpcs:enable
 
 		update_option( WOWP_Plugin::PREFIX . '_plugin_capabilities', $capability );
 

@@ -89,9 +89,8 @@ jQuery(document).ready(function ($) {
     }
     function change_users() {
         const type = $(this).val();
-        const parent = get_parent_fields($(this));
-        const box = get_field_box($(this));
-        const fields = $(parent).find('[data-field-box]').not($(box));
+        const fieldset = get_parent_fields($(this), '.wpie-fieldset');
+        const fields = fieldset.find('.wpie-fields').eq(1);
         $(fields).addClass('is-hidden');
         if (type === '2') {
             $(fields).removeClass('is-hidden');

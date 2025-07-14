@@ -138,6 +138,7 @@ class CreateFields {
 	}
 
 	private function get_template( $args ): string {
+
 		if ( $args['type'] === 'select' ) {
 			return $this->select_template();
 		}

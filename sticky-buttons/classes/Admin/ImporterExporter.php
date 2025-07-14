@@ -1,12 +1,23 @@
 <?php
+
 /**
- * Display the export/import form.
+ * Class ImporterExporter
+ *
+ * This class provides functionality for exporting and importing data.
+ *
+ * @package    WowPlugin
+ * @subpackage Admin
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
+ * @copyright  2024 Dmytro Lobov
+ * @license    GPL-2.0+
+ *
  */
 
 namespace StickyButtons\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
+use StickyButtons\Update\UpdateDB;
 use StickyButtons\WOWP_Plugin;
 
 /**
@@ -22,7 +33,7 @@ class ImporterExporter {
             <p></p>
             <p>
 				<?php
-				submit_button( __( 'Export All Data', 'sticky-buttons' ), 'secondary', 'submit', false ); ?><?php
+				submit_button( __( 'Export All Data', 'sticky-buttons' ), 'primary', 'submit', false ); ?><?php
 				wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_export_data' ); ?>
             </p>
         </form>
@@ -35,7 +46,7 @@ class ImporterExporter {
         <form method="post" enctype="multipart/form-data" action="">
             <p>
                 <span class="wpie-file">
-                <input type="file" name="import_file" accept="*.json"/>
+                <input type="file" name="import_file" class="" accept="*.json"/>
                 </span>
             </p>
             <p>
@@ -48,7 +59,7 @@ class ImporterExporter {
 
             <p>
 				<?php
-				submit_button( __( 'Import', 'sticky-buttons' ), 'secondary', 'submit', false ); ?><?php
+				submit_button( __( 'Import', 'sticky-buttons' ), 'primary', 'submit', false ); ?><?php
 				wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_import_data' ); ?>
             </p>
         </form>
@@ -65,7 +76,7 @@ class ImporterExporter {
 		if ( ! $verify ) {
 			return;
 		}
-
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verification is handled elsewhere.
 		if ( ! isset( $_FILES['import_file'] ) || empty( $_FILES['import_file']['name'] ) ) {
 			wp_die( esc_attr__( 'Please select a file to import', 'sticky-buttons' ),
 				esc_attr__( 'Error', 'sticky-buttons' ),
@@ -91,14 +102,24 @@ class ImporterExporter {
 		$columns = DBManager::get_columns();
 
 		$update = ! empty( $_POST['wpie_import_update'] ) ? '1' : '';
+		// phpcs:enable
 
 		foreach ( $settings as $key => $val ) {
 			$data    = [];
 			$formats = [];
 
 			foreach ( $columns as $column ) {
-				$name          = $column->Field;
-				$data[ $name ] = ! empty( $val->$name ) ? $val->$name : '';
+				$name = $column->Field;
+
+				if ( $name === 'param' ) {
+					$param_input   = maybe_unserialize( $val->$name );
+					$new_param     = UpdateDB::update_param( $param_input );
+					$param_output  = maybe_serialize( $new_param );
+					$data[ $name ] = $param_output;
+				} else {
+					$data[ $name ] = ! empty( $val->$name ) ? $val->$name : '';
+				}
+
 				if ( $name === 'id' || $name === 'status' || $name === 'mode' ) {
 					$formats[] = '%d';
 				} else {
@@ -143,15 +164,12 @@ class ImporterExporter {
 	/**
 	 * @throws \JsonException
 	 */
-	public static function export_item( $id = 0, $action = '' ): bool {
-		$verify = AdminActions::verify(WOWP_Plugin::PREFIX . '_export_item');
-
-		if ( ! $verify ) {
-			return false;
-		}
-
-		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-		$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : $action;
+	public static function export_item( $id = 0, $action = '' ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash($_GET['page']) ) : '';
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash($_GET['action']) ) : $action;
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$id     = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : $id;
 
 		if ( ( $page !== WOWP_Plugin::SLUG ) || ( $action !== 'export' ) || empty( $id ) ) {
@@ -175,12 +193,6 @@ class ImporterExporter {
 	 * @throws \JsonException
 	 */
 	public static function export_data(): bool {
-		$verify = AdminActions::verify(WOWP_Plugin::PREFIX . '_export_data');
-
-		if ( ! $verify ) {
-			return false;
-		}
-
 		$file_name = WOWP_Plugin::SHORTCODE . '-database-' . gmdate( 'm-d-Y' ) . '.json';
 		$data      = DBManager::get_all_data();
 		if ( empty( $data ) ) {

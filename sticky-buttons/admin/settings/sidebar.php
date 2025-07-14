@@ -63,14 +63,14 @@ if ( ! empty( $options['id'] ) ) {
                 </label>
             </div>
 
-			<?php if ( ! empty( $shortcode ) ) : ?>
+	        <?php if ( ! empty( $shortcode ) ) : ?>
                 <div class="wpie-field">
                     <label class="wpie-field__label has-icon">
-                        <span class="has-tooltip on-right is-pointer can-copy" data-tooltip="Copy"><span class="dashicons dashicons-shortcode" ></span></span>
+                        <span class="has-tooltip on-right is-pointer can-copy" data-tooltip="Copy"><span class="dashicons dashicons-shortcode"></span></span>
                         <input type="text" id="shortcode" value="<?php echo esc_attr( $shortcode ); ?>" readonly>
                     </label>
                 </div>
-			<?php endif; ?>
+	        <?php endif; ?>
 
         </div>
 
@@ -86,16 +86,11 @@ if ( ! empty( $options['id'] ) ) {
             </div>
 
             <div class="wpie-action__btn">
-				<?php if ( ! empty( $options['id'] ) ): ?>
-                    <a href="<?php echo esc_url( Link::duplicate( $options['id'] ) ); ?>"
-                       class="button"><?php esc_html_e( 'Duplicate', 'sticky-buttons' ); ?></a>
-				<?php endif; ?>
-				<?php submit_button( 'Save', 'primary', 'submit_settings', false ); ?>
+                <span class="spinner"></span>
+				<?php submit_button( null, 'primary', 'submit_settings', false ); ?>
             </div>
         </div>
 
     </div>
 
 <?php
-
-require_once plugin_dir_path( __FILE__ ) . 'pro-plugin.php';

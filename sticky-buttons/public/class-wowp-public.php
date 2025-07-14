@@ -14,7 +14,7 @@
 namespace StickyButtons;
 
 use StickyButtons\Admin\DBManager;
-use StickyButtons\Maker\Content;
+//use StickyButtons\Maker\Content;
 use StickyButtons\Publish\Conditions;
 use StickyButtons\Publish\Display;
 use StickyButtons\Publish\Singleton;
@@ -29,15 +29,20 @@ class WOWP_Public {
 		// prefix for plugin assets
 		$this->pefix = '.min';
 
+		$this->includes();
+
 		add_shortcode( WOWP_Plugin::SHORTCODE, [ $this, 'shortcode' ] );
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'assets' ] );
 		add_action( 'wp_footer', [ $this, 'footer' ] );
-
 	}
 
+	public function includes(): void {
+		$path_maker = plugin_dir_path( __FILE__ ) . 'class-wowp-maker.php';
+		require_once apply_filters(WOWP_Plugin::PREFIX . '_include_maker', $path_maker);
+	}
 
-	public function shortcode( $atts ) {
+	public function shortcode( $atts ): string {
 		$atts = shortcode_atts(
 			[ 'id' => "" ],
 			$atts,
@@ -75,6 +80,7 @@ class WOWP_Public {
 	public function assets(): void {
 		$handle          = WOWP_Plugin::SLUG;
 		$assets          = plugin_dir_url( __FILE__ ) . 'assets/';
+		$assets          = apply_filters( WOWP_Plugin::PREFIX . '_frontend_assets', $assets );
 		$version         = WOWP_Plugin::info( 'version' );
 		$url_fontawesome = WOWP_Plugin::url() . 'vendors/fontawesome/css/all.css';
 
@@ -86,7 +92,7 @@ class WOWP_Public {
 		$args      = $singleton->getValue();
 
 		if ( ! empty( $args ) ) {
-			wp_enqueue_style( $handle, $assets . 'css/style' . $this->pefix . '.css', [], $version, 'all' );
+			wp_enqueue_style( $handle, $assets . 'css/style' . $this->pefix . '.css', [], $version, $media = 'all' );
 		}
 		foreach ( $args as $id => $param ) {
 			if ( empty( $param['fontawesome'] ) ) {
@@ -99,6 +105,7 @@ class WOWP_Public {
 	public function footer(): void {
 		$handle          = WOWP_Plugin::SLUG;
 		$assets          = plugin_dir_url( __FILE__ ) . 'assets/';
+		$assets          = apply_filters( WOWP_Plugin::PREFIX . '_frontend_assets', $assets );
 		$version         = WOWP_Plugin::info( 'version' );
 		$url_fontawesome = WOWP_Plugin::url() . 'vendors/fontawesome/css/all.css';
 
@@ -109,10 +116,17 @@ class WOWP_Public {
 			return;
 		}
 
-		wp_enqueue_style( $handle, $assets . 'css/style' . $this->pefix . '.css', [], $version, 'all' );
+		wp_enqueue_style( $handle, $assets . 'css/style' . $this->pefix . '.css', [], $version, $media = 'all' );
+		wp_enqueue_script( $handle, $assets . 'js/script' . $this->pefix . '.js', [], $version, true );
+		wp_localize_script( $handle, 'sb_obj', [
+			'url'   => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'sb_nonce' ),
+		] );
+
 
 		foreach ( $args as $id => $param ) {
-			$content = new Content( $id, $param );
+			$content = new WOWP_Maker( $id, $param );
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Safe output, handled inside Content::init()
 			echo $content->init();
 			if ( empty( $param['fontawesome'] ) ) {
 				wp_enqueue_style( $handle . '-fontawesome', $url_fontawesome, null, '6.7.1' );

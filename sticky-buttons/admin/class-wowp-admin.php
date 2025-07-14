@@ -16,6 +16,8 @@ namespace StickyButtons;
 
 use StickyButtons\Admin\AdminActions;
 use StickyButtons\Admin\Dashboard;
+use StickyButtons\Admin\Demo;
+use StickyButtons\Admin\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -23,50 +25,67 @@ class WOWP_Admin {
 	public function __construct() {
 		Dashboard::init();
 		AdminActions::init();
-		$this->includes();
+		Demo::init();
 
+		add_action( 'wp_ajax_' . WOWP_Plugin::PREFIX . '_ajax_settings', [ Settings::class, 'save_item' ] );
 		add_action( WOWP_Plugin::PREFIX . '_admin_header_links', [ $this, 'plugin_links' ] );
 		add_filter( WOWP_Plugin::PREFIX . '_save_settings', [ $this, 'save_settings' ] );
 		add_action( WOWP_Plugin::PREFIX . '_admin_load_assets', [ $this, 'load_assets' ] );
 
 	}
 
-	public function includes(): void {
-		require_once plugin_dir_path( __FILE__ ) . 'class-settings-helper.php';
-	}
 
 	public function plugin_links(): void {
-		?>
-        <div class="wpie-links">
-            <a href="<?php echo esc_url( WOWP_Plugin::info( 'change' ) ); ?>" target="_blank">Check for Updates</a>
-            <a href="<?php echo esc_url( WOWP_Plugin::info( 'rating' ) ); ?>" target="_blank" class="wpie-color-orange">Rate Us</a>
-            <span class="wpie-links-divider">|</span>
-            <a href="<?php echo esc_url( WOWP_Plugin::info( 'pro' ) ); ?>" target="_blank" class="wpie-color-danger">Upgrade to Pro</a>
-            <a href="<?php echo esc_url( WOWP_Plugin::info( 'demo' ) ); ?>" target="_blank">Live Pro Demo</a>
-        </div>
-		<?php
+		$links = [
+			'change' => __( 'Check for Updates', 'sticky-buttons' ),
+			'rating' => __( 'Rate Us', 'sticky-buttons',  ),
+			'pro'    => __( 'Pro Plugin', 'sticky-buttons' ),
+			'docs'   => __( 'Documentation', 'sticky-buttons' ),
+			'demo'   => __( 'Pro Demo', 'sticky-buttons' ),
+		];
+
+		echo '<div class="wpie-links">';
+
+		$i = 1;
+		foreach ( $links as $slug => $title ) {
+
+			$link = WOWP_Plugin::info( $slug );
+			if ( empty( $link ) ) {
+				continue;
+			}
+
+			if ( $i % 3 === 0 ) {
+				echo '<span class="wpie-links-divider">|</span>';
+			}
+
+			echo '<a href="' . esc_url( $link ) . '" class="wowp-link-' . esc_attr( $slug ) . '" target="_blank">' . esc_html( $title ) . '</a>';
+
+			$i ++;
+		}
+
+		echo '</div>';
 	}
 
-	public function save_settings() {
+	public function save_settings($request) {
 
-		$param = ! empty( $_POST['param'] ) ? map_deep( wp_unslash($_POST['param']), 'sanitize_text_field' ) : [];
+		$param = ! empty( $request ) ? map_deep( wp_unslash( $request ), 'sanitize_text_field' ) : [];
 
-		if ( isset( $_POST['param']['menu_1']['item_tooltip'] ) ) {
-			$param['menu_1']['item_tooltip'] = map_deep( wp_unslash($_POST['param']['menu_1']['item_tooltip']), array(
+		if ( isset( $request['menu_1']['item_tooltip'] ) ) {
+			$param['menu_1']['item_tooltip'] = map_deep( $request['menu_1']['item_tooltip'], array(
 				$this,
 				'sanitize_tooltip'
 			) );
 		}
 
-		if ( isset( $_POST['param']['menu_1']['item_text'] ) ) {
-			$param['menu_1']['item_text'] = map_deep( wp_unslash($_POST['param']['menu_1']['item_text']), [
+		if ( isset( $request['menu_1']['item_text'] ) ) {
+			$param['menu_1']['item_text'] = map_deep( $request['menu_1']['item_text'], [
 				$this,
 				'sanitize_text'
 			] );
 		}
 
-		if ( isset( $_POST['param']['menu_1']['item_custom_text'] ) ) {
-			$param['menu_1']['item_custom_text'] = map_deep( wp_unslash($_POST['param']['menu_1']['item_custom_text']), [
+		if ( isset( $request['menu_1']['item_custom_text'] ) ) {
+			$param['menu_1']['item_custom_text'] = map_deep( $request['menu_1']['item_custom_text'], [
 				$this,
 				'sanitize_tooltip'
 			] );
@@ -96,10 +115,10 @@ class WOWP_Admin {
 
 		wp_enqueue_script( 'jquery-ui-sortable' );
 
-		wp_enqueue_script( 'code-editor' );
-		wp_enqueue_style( 'code-editor' );
-		wp_enqueue_script( 'htmlhint' );
-		wp_enqueue_script( 'csslint' );
+//		wp_enqueue_script( 'code-editor' );
+//		wp_enqueue_style( 'code-editor' );
+//		wp_enqueue_script( 'htmlhint' );
+//		wp_enqueue_script( 'csslint' );
 
 
 
@@ -108,7 +127,7 @@ class WOWP_Admin {
 		$slug              = WOWP_Plugin::SLUG;
 		$version = WOWP_Plugin::info( 'version' );
 
-		wp_enqueue_style( $slug . '-fontawesome', WOWP_Plugin::url() . 'vendors/fontawesome/css/all.min.css', [], '6.7' );
+		wp_enqueue_style( $slug. '-fontawesome', WOWP_Plugin::url() . 'vendors/fontawesome/css/all.min.css', [], '6.7.1' );
 
 		$fonticonpicker_js = $url_assets . 'fonticonpicker/js/jquery.fonticonpicker.js';
 		wp_enqueue_script( $slug . '-fonticonpicker', $fonticonpicker_js, array( 'jquery' ), '3.1.1', true );

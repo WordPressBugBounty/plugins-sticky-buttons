@@ -5,9 +5,9 @@
  *
  * The Autoloader class is responsible for loading classes automatically based on their namespace.
  *
- * @package    StickyButtons
+ * @package    WowPlugin
  * @subpackage Autoloader
- * @author     Dmytro Lobov <hey@wow-company.com>, Wow-Company
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov
  * @license    GPL-2.0+
  */
@@ -31,7 +31,6 @@ class Autoloader {
 	}
 
 	public function autoload( $class ): void {
-
 		if ( strpos( $class, $this->namespace ) === 0 ) {
 			$file = $this->get_file_path( $class );
 

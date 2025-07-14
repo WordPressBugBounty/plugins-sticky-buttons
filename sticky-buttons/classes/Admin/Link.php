@@ -1,28 +1,24 @@
 <?php
 
 /**
- * Class Link
+ * The Link class provides methods for generating URLs with query arguments.
  *
- * Handles generating various URLs within the admin area.
+ * @package    WowPlugin
+ * @subpackage Admin
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
+ * @copyright  2024 Dmytro Lobov
+ * @license    GPL-2.0+
  */
 
 namespace StickyButtons\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
-use /**
- * The StickyButtons\WOWP_Plugin class represents a WordPress plugin that adds custom buttons to the post editor.
- *
- * @package StickyButtons
- */
-	StickyButtons\WOWP_Plugin;
+use StickyButtons\WOWP_Plugin;
 
-/**
- * The Link class provides methods for generating URLs with query arguments.
- */
 class Link {
 
-	public static function add_new_item() {
+	public static function add_new_item(): string {
 
 		return add_query_arg( [
 			'page'   => WOWP_Plugin::SLUG,
@@ -42,41 +38,41 @@ class Link {
 		], self::link() ), WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_activate_mode' );
 	}
 
-	public static function deactivate_mode( $id = 0 ) {
+	public static function deactivate_mode( $id = 0 ): string {
 		return wp_nonce_url( add_query_arg( [
 			'id' => $id,
 		], self::link() ), WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_deactivate_mode' );
 	}
 
 
-	public static function activate_url( $id = 0 ) {
+	public static function activate_url( $id = 0 ): string {
 		return wp_nonce_url( add_query_arg( [
 			'id'     => $id,
 			'action' => 'activate',
 		], self::link() ), WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_activate_item' );
 	}
 
-	public static function deactivate_url( $id = 0 ) {
+	public static function deactivate_url( $id = 0 ): string {
 		return wp_nonce_url( add_query_arg( [
 			'id'     => $id,
 			'action' => 'deactivate',
 		], self::link() ), WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_deactivate_item' );
 	}
 
-	public static function remove_item() {
+	public static function remove_item(): string {
 		return add_query_arg( [
 			'notice' => 'remove_item',
 		], self::link() );
 
 	}
 
-	public static function save_item( $id ) {
+	public static function save_item( $id ): string {
 		return add_query_arg( [
 			'tab'    => 'settings',
 			'action' => 'update',
 			'id'     => $id,
 			'notice' => 'save_item',
-			'nonce' => wp_create_nonce( 'save-item')
+			'nonce'  => wp_create_nonce( 'save-item' )
 		], self::link() );
 	}
 

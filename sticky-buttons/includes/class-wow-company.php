@@ -4,13 +4,15 @@
  *
  * The Wow_Company class represents a company in the WordPress admin menu that provides Wow Plugins.
  *
- * @package    StickyButtons
+ * @package    WowPlugin
  * @subpackage General
- * @author     Dmytro Lobov <hey@wow-company.com>, Wow-Company
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov
  * @license    GPL-2.0+
  */
 
+
+use StickyButtons\Admin\ManageCapabilities;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -26,11 +28,11 @@ final class Wow_Company {
 		$icon       = self::icon();
 		$page_title = __( 'WordPress plugins from Wow-Company', 'sticky-buttons' );
 		$menu_title = __( 'Wow Plugins', 'sticky-buttons' );
-		$capability = 'manage_options';
+		$capability  = ManageCapabilities::get_capability();
 		$slug       = 'wow-company';
 
 		add_menu_page( $page_title, $menu_title, $capability, $slug, [ $this, 'welcome_page' ], $icon );
-		add_submenu_page( $slug, $page_title, '👋 Hey', $capability, $slug );
+		add_submenu_page( $slug, $page_title, '&#128075; Hey', $capability, $slug );
 	}
 
 	public function welcome_page(): void {

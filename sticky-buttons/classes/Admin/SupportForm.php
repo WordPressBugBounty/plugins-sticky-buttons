@@ -78,7 +78,7 @@ class SupportForm {
                     <div class="wpie-field">
                         <div class="wpie-field__title"><?php esc_html_e( 'License Key', 'sticky-buttons' ); ?></div>
                         <label class="wpie-field__label has-icon">
-                            <span class="wpie-icon wpie_icon-key"></span>
+                            <span>🔑</span>
                             <input type="text" readonly name="support[license]" id="support-license"
                                    value="<?php echo esc_attr( $license ); ?>">
                         </label>
@@ -87,7 +87,7 @@ class SupportForm {
                 </div>
                 <div class="wpie-fields is-column">
 					<?php
-					$content   = __( 'Enter Your Message', 'sticky-buttons' );
+					$content   = esc_attr__( 'Enter Your Message', 'sticky-buttons' );
 					$editor_id = 'support-message';
 					$settings  = array(
 						'textarea_name' => 'support[message]',
@@ -124,7 +124,7 @@ class SupportForm {
 
 			return;
 		}
-
+        // phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verification is handled elsewhere.
 		$from    = isset( $_POST['support']['name'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['name'] ) ) : '';
 		$email   = isset( $_POST['support']['email'] ) ? sanitize_email( wp_unslash( $_POST['support']['email'] ) ) : '';
 		$license = isset( $_POST['support']['license'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['license'] ) ) : '';
@@ -132,6 +132,7 @@ class SupportForm {
 		$link    = isset( $_POST['support']['link'] ) ? sanitize_url( wp_unslash( $_POST['support']['link'] ) ) : '';
 		$message = isset( $_POST['support']['message'] ) ? wp_kses_post( wp_unslash( $_POST['support']['message'] ) ) : '';
 		$type    = isset( $_POST['support']['type'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['type'] ) ) : '';
+		// phpcs:enable
 
 		$headers = array(
 			'From: ' . esc_attr( $from ) . ' <' . esc_attr( $email ) . '>',
@@ -178,6 +179,7 @@ class SupportForm {
 		$fields = [ 'name', 'email', 'link', 'type', 'plugin', 'license', 'message' ];
 
 		foreach ( $fields as $field ) {
+			// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verification is handled elsewhere.
 			if ( empty( $_POST['support'][ $field ] ) ) {
 				return __( 'Please fill in all the form fields below.', 'sticky-buttons' );
 			}

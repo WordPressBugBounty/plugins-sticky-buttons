@@ -5,17 +5,17 @@
  *
  * Provides methods to check conditions for displaying item
  *
- * @package    StickyButtons
+ * @package    WowPlugin
  * @subpackage Publish
- * @author     Dmytro Lobov <hey@wow-company.com>, Wow-Company
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov
  * @license    GPL-2.0+
  */
 
 namespace StickyButtons\Publish;
 
+use StickyButtons\Admin\ManageCapabilities;
 use StickyButtons\WOWP_Plugin;
-use StickyButtons\WOWP_Public;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,7 +29,7 @@ class Conditions {
 			'mode'           => self::mode( $result->mode ),
 		];
 
-		$check = apply_filters( WOWP_Plugin::PREFIX . '_conditions', $check );
+		$check = apply_filters( WOWP_Plugin::PREFIX . '_conditions', $check, $param );
 
 		if ( in_array( false, $check, true ) ) {
 			return false;
@@ -44,6 +44,9 @@ class Conditions {
 	}
 
 	private static function mode( $mode ): bool {
-		return empty( $mode ) || current_user_can( 'manage_options' );
+		$capability  = ManageCapabilities::get_capability();
+
+		return empty( $mode ) || current_user_can( $capability );
 	}
+
 }

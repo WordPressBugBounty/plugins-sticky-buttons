@@ -4,24 +4,58 @@
     $.fn.wowSideMenuLiveBuilder = function () {
         this.each(function (index, element) {
             const labelText = $(this).find('[data-field="menu_1-item_tooltip"]').val();
-            const typeText = $(this).find('[data-field="menu_1-item_type"] option:selected').text();
-            const subItem = $(this).find('[data-field="menu_1-sub_item"]');
+            let typeText = $(this).find('[data-field="menu_1-item_type"] option:selected').text();
+            // const subItem = $(this).find('[data-field="menu_1-sub_item"]');
+            const linkType = $(this).find('[data-field="menu_1-item_type"]').val();
             const iconValue = getIcon(this);
 
             const icon = $(this).find('.wpie-item_heading_icon');
             const label = $(this).find('.wpie-item_heading_label');
             const type = $(this).find('.wpie-item_heading_type');
-            const sub = $(this).find('.wpie-item_heading_sub');
+            // const sub = $(this).find('.wpie-item_heading_sub');
+
+            if (linkType === 'share') {
+                const text = $(this).find('[data-field="menu_1-item_share"] option:selected').text();
+                typeText = typeText + ': ' + text;
+            }
+
+            if (linkType === 'share_content') {
+                const text = $(this).find('[data-field="menu_1-share_content"] option:selected').text();
+                typeText = typeText + ': ' + text;
+            }
+
+            if (linkType === 'translate') {
+                const text = $(this).find('[data-field="menu_1-gtranslate"] option:selected').text();
+                typeText = typeText + ': ' + text;
+            }
+
+            if (linkType === 'smoothscroll') {
+                const text = $(this).find('[data-field="menu_1-item_link"]').val();
+                typeText = typeText + ': ' + text;
+            }
+
+            if (linkType === 'font') {
+                const text = $(this).find('[data-field="menu_1-font"] option:selected').text();
+                typeText = typeText + ': ' + text;
+            }
+
+
+            const sub = $(element).find('.wpie-item__parent');
+
+            if ($(element).hasClass('shifted-right')) {
+                sub.val(1);
+            } else {
+                sub.val(0);
+            }
 
             const color = $(this).find('[data-field="menu_1-color"]').val();
-            const iconcolor = $(this).find('[data-field="menu_1-iconcolor"]').val();
             const bcolor = $(this).find('[data-field="menu_1-bcolor"]').val();
-            const hbcolor = $(this).find('[data-field="menu_1-hbcolor"]').val();
-            const font = $(this).find('[data-field="menu_1-item_tooltip_font"]').val();
-            const style = $(this).find('[data-field="menu_1-item_tooltip_style"]').val();
-            const weight = $(this).find('[data-field="menu_1-item_tooltip_weight"]').val();
+            const font = $(this).find('[data-field="menu_1-label_font"]').val();
+            const style = $(this).find('[data-field="menu_1-label_style"]').val();
+            const weight = $(this).find('[data-field="menu_1-label_weight"]').val();
 
-            icon.css({'color': iconcolor, 'background': bcolor});
+            icon.css({'color': color, 'background': bcolor});
+
             label.css({
                 'color': color,
                 'background': bcolor,
@@ -32,8 +66,8 @@
 
             icon.add(label).hover(
                 function () { // This runs when the mouse enters either the icon or label
-                    icon.css({'color': iconcolor, 'background': hbcolor});
-                    label.css({'color': color, 'background': hbcolor});
+                    icon.css({'color': bcolor, 'background': color});
+                    label.css({'color': bcolor, 'background': color});
                 },
                 function () { // This runs when the mouse leaves either the icon or label
                     icon.css({'color': color, 'background': bcolor});
@@ -44,11 +78,6 @@
 
             label.text(labelText);
             type.text(typeText);
-            if (subItem.is(':checked')) {
-                sub.html('<em>sub item</em>');
-            } else {
-                sub.html('');
-            }
             icon.html(iconValue);
 
 

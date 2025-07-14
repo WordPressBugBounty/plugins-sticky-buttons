@@ -8,22 +8,22 @@ jQuery(document).ready(function ($) {
             const newId = 'wpie-fulleditor-' + (index + 1);
             $(element).attr('id', newId);
             $(element).css({'border': 'none', 'width': '100%'});
-            wp.editor.initialize(
-                newId,
-                {
-                    tinymce: {
-                        wpautop: false,
-                        plugins: 'lists wplink hr charmap textcolor colorpicker paste tabfocus wordpress wpautoresize wpeditimage wpemoji wpgallery wplink wptextpattern codemirror table',
-                        toolbar1: 'bold italic underline subscript superscript blockquote | bullist numlist | alignleft aligncenter alignright alignjustify | link unlink | wp_adv',
-                        toolbar2: 'strikethrough hr | forecolor backcolor | pastetext removeformat charmap | outdent indent | undo redo wp_help ',
-                        toolbar3: 'formatselect fontselect fontsizeselect | table',
-                    },
-                    quicktags: {
-                        buttons: "strong,em,link,block,del,ins,img,ul,ol,li,code,more,close",
-                    },
-                    mediaButtons: false,
-                }
-            );
+                wp.editor.initialize(
+                    newId,
+                    {
+                        tinymce: {
+                            wpautop: false,
+                            plugins: 'lists wplink hr charmap textcolor colorpicker paste tabfocus wordpress wpautoresize wpeditimage wpemoji wpgallery wplink wptextpattern',
+                            toolbar1: 'bold italic underline subscript superscript blockquote | bullist numlist | alignleft aligncenter alignright alignjustify | link unlink | wp_adv',
+                            toolbar2: 'strikethrough hr | forecolor backcolor | pastetext removeformat charmap | outdent indent | undo redo wp_help ',
+                            toolbar3: 'formatselect fontselect fontsizeselect',
+                        },
+                        quicktags: {
+                            buttons: "strong,em,link,block,del,ins,img,ul,ol,li,code,more,close",
+                        },
+                        mediaButtons: false,
+                    }
+                );
         });
     };
 
@@ -118,14 +118,16 @@ jQuery(document).ready(function ($) {
     $.fn.wowIconPicker = function () {
         this.fontIconPicker({
             source: icons,
-            emptyIcon: false,
+            emptyIcon: true,
             allCategoryText: 'Show all',
             theme: 'fip-darkgrey',
         });
     };
 
     $.fn.wowImageDownload = function (){
-
+        const parent = $(this).closest('.wpie-fields');
+        const altIn = $(parent).find('[data-field="menu_1-image_alt"]');
+        const input = $(this).find('input');
         const addon = $(this).find('.wpie-field__label.is-addon');
         $(addon).html('<span class="wpie-icon wpie_icon-file-download is-pointer"></span>');
         var custom_uploader;
@@ -136,10 +138,6 @@ jQuery(document).ready(function ($) {
                 return;
             }
 
-            const parentElement = $(this).closest('.wpie-field__group');
-            const input = $(parentElement).find('input');
-
-            // wpie-field__group
             custom_uploader = wp.media.frames.file_frame = wp.media({
                 title: 'Choose Image',
                 button: {
@@ -155,6 +153,8 @@ jQuery(document).ready(function ($) {
 
                 // Send the attachment URL to our custom input field.
                 $(input).val(attachment.url);
+                $(altIn).val(attachment.alt);
+                $('#wpie-items-list .wpie-item').wowSideMenuLiveBuilder();
             });
 
             // Open the media manager.

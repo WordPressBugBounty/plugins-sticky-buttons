@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Class AdminActions
+ *
+ * This class handles administrative actions in the plugin.
+ *
+ * @package    WowPlugin
+ * @subpackage Admin
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
+ * @copyright  2024 Dmytro Lobov
+ * @license    GPL-2.0+
+ *
+ */
+
 namespace StickyButtons\Admin;
 
 use StickyButtons\WOWP_Plugin;
@@ -13,9 +26,9 @@ class AdminActions {
 	}
 
 	public static function actions(): bool {
-		$name = self::check_name();
-
-		if ( empty( $name ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$name = self::check_name( $_REQUEST );
+		if ( ! $name ) {
 			return false;
 		}
 		$verify = self::verify( $name );
@@ -32,9 +45,8 @@ class AdminActions {
 			ImporterExporter::import_data();
 		} elseif ( strpos( $name, '_remove_item' ) !== false ) {
 			DBManager::remove_item();
-		} elseif ( strpos( $name, '_settings' ) !== false ) {
-			Settings::save_item();
-		} elseif ( strpos( $name, '_activate_item' ) !== false ) {
+		}
+		elseif ( strpos( $name, '_activate_item' ) !== false ) {
 			Settings::activate_item();
 		} elseif ( strpos( $name, '_deactivate_item' ) !== false ) {
 			Settings::deactivate_item();
@@ -57,7 +69,7 @@ class AdminActions {
 		return ( ! empty( $nonce ) &&  wp_verify_nonce( $nonce, $nonce_action ) && current_user_can( $capability ) );
 	}
 
-	private static function check_name(): string {
+	private static function check_name( $request ) {
 		$names = [
 			WOWP_Plugin::PREFIX . '_import_data',
 			WOWP_Plugin::PREFIX . '_export_data',
@@ -71,14 +83,15 @@ class AdminActions {
 			WOWP_Plugin::PREFIX . '_capabilities',
 		];
 
-		foreach ( $names as $name ) {
-			if ( isset( $_REQUEST[ $name ] ) ) {
-				return $name;
+		foreach ( $request as $key => $value ) {
+
+			if ( in_array( $key, $names, true ) ) {
+				return $key;
 			}
 		}
 
-		return '';
-	}
+		return false;
 
+	}
 
 }

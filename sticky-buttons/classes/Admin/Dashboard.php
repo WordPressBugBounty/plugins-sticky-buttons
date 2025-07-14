@@ -1,27 +1,23 @@
 <?php
+
 /**
  * Class Dashboard
  *
- * Handles the dashboard functionality of the plugin
+ * @package    WowPlugin
+ * @subpackage Admin
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
+ * @copyright  2024 Dmytro Lobov
+ * @license    GPL-2.0+
  *
- * @package StickyButtons\Admin
  */
 
 namespace StickyButtons\Admin;
 
-use /**
- * Class WOWP_Plugin
- *
- * This class represents a WordPress plugin that adds custom buttons to the WordPress editor.
- */
-	StickyButtons\WOWP_Plugin;
+use StickyButtons\WOWP_Plugin;
 
-/**
- * Class Dashboard
- */
 class Dashboard {
 
-	public static function init() {
+	public static function init(): void {
 		add_filter( 'plugin_action_links', [ __CLASS__, 'settings_link' ], 10, 2 );
 		add_filter( 'admin_footer_text', [ __CLASS__, 'footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_assets' ] );
@@ -44,13 +40,12 @@ class Dashboard {
 	public static function footer_text( $footer_text ) {
 		global $pagenow;
 
-		$page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-
-		if ( $pagenow === 'admin.php' && ( ! empty( $page ) && $page === WOWP_Plugin::SLUG ) ) {
+		// No nonce verification is required as this is a read-only operation to check the current admin page.
+		if ( $pagenow === 'admin.php' && ( isset( $_GET['page'] ) && $_GET['page'] === WOWP_Plugin::SLUG ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$text = sprintf(
 			/* translators: 1: Rating link (URL), 2: Plugin name */
 				__( 'Thank you for using <b>%2$s</b>! Please <a href="%1$s" target="_blank">rate us</a>', 'sticky-buttons' ),
-				esc_url( WOWP_Plugin::info( 'url' ) ),
+				esc_url( WOWP_Plugin::info( 'rating' ) ),
 				esc_attr( WOWP_Plugin::info( 'name' ) )
 			);
 
@@ -79,6 +74,7 @@ class Dashboard {
 				$name = $style['file'];
 				$file = $key . '.' . $name;
 				wp_enqueue_style( $slug . '-admin-' . $name, $assets_url . 'css/' . $file . '.css', null, $version );
+				wp_style_add_data( $slug . '-admin-' . $name, 'rtl', 'replace' );
 			}
 		}
 
@@ -88,13 +84,21 @@ class Dashboard {
 				$name = $script['file'];
 				$file = $key . '.' . $name;
 				wp_enqueue_script( $slug . '-admin-' . $name, $assets_url . 'js/' . $file . '.js', [ 'jquery' ], $version, true );
+				if ( $name === 'general' ) {
+					wp_localize_script( $slug . '-admin-' . $name, 'wowp_ajax_object', array(
+						'url'      => admin_url( 'admin-ajax.php' ),
+						'security' => wp_create_nonce( WOWP_Plugin::PREFIX . '_settings' ),
+						'action'   => WOWP_Plugin::PREFIX . '_ajax_settings',
+						'prefix'   => WOWP_Plugin::PREFIX,
+					) );
+				}
 			}
 		}
 
 
 	}
 
-	public static function admin_page() {
+	public static function admin_page(): void {
 		$page_title  = WOWP_Plugin::info( 'name' );
 		$menu_title  = WOWP_Plugin::info( 'menu_title' );
 		$capability  = ManageCapabilities::get_capability();
@@ -105,7 +109,7 @@ class Dashboard {
 		] );
 	}
 
-	public static function dashboard() {
+	public static function dashboard(): void {
 		self::header();
 		echo '<div class="wrap wpie-wrap">';
 		self::menu();
@@ -113,7 +117,8 @@ class Dashboard {
 		echo '</div>';
 	}
 
-	public static function header() {
+	// phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
+	public static function header(): void {
 		$logo_url = self::logo_url();
 		?>
         <div class="wpie-header-wrapper">
@@ -126,19 +131,22 @@ class Dashboard {
                                  alt="<?php echo esc_attr( WOWP_Plugin::info( 'name' ) ); ?> logo">
                         </div>
 					<?php endif; ?>
-                    <h1><?php echo esc_html( WOWP_Plugin::info( 'name' ) ); ?> <sup
-                                class="wpie-version"><?php echo esc_html( WOWP_Plugin::info( 'version' ) ); ?></sup>
+                    <h1>
+						<?php echo esc_html( WOWP_Plugin::info( 'name' ) ); ?>
+                        <sup class="wpie-version"><?php echo esc_html( WOWP_Plugin::info( 'version' ) ); ?></sup>
                     </h1>
-                    <a href="<?php echo esc_url( Link::add_new_item() ); ?>"
-                       class="button button-primary"><?php esc_html_e( 'Add New', 'sticky-buttons' ); ?>
+                    <a href="<?php echo esc_url( Link::add_new_item() ); ?>" class="button button-primary">
+						<?php esc_html_e( 'Add New', 'sticky-buttons' ); ?>
                     </a>
+					<?php do_action( WOWP_Plugin::PREFIX . '_admin_after_button' ); ?>
 					<?php do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); ?>
                 </div>
             </div>
         </div>
 		<?php
-
 	}
+
+	// phpcs:enable
 
 
 	public static function logo_url(): string {
@@ -150,26 +158,33 @@ class Dashboard {
 		return '';
 	}
 
-	public static function menu() {
+	public static function menu(): void {
 		$pages = DashboardHelper::get_files( 'pages' );
+
+		$pages = apply_filters( WOWP_Plugin::PREFIX . '_admin_pages_menu', $pages );
 
 		$current_page = self::get_current_page();
 
-		$action = ( isset( $_REQUEST["action"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["action"] ) ) : '';
+		//No nonce checking is required as this is just reading the parameters.
+		$action = ( isset( $_REQUEST["action"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["action"] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 		echo '<h2 class="nav-tab-wrapper wpie-nav-tab-wrapper">';
 		foreach ( $pages as $key => $page ) {
-			$class = ( $page['file'] === $current_page ) ? ' nav-tab-active' : '';
+			$class = ( $page['file'] === $current_page ) ? ' nav-tab-active wowp-page-' . $page['file'] : ' wowp-page-' . $page['file'];
 			$id    = '';
 
-			if ( $action === 'update' && $page['file'] === 'settings' ) {
-				$id           = ( isset( $_REQUEST["id"] ) ) ? absint( $_REQUEST["id"] ) : '';
+			if ( $action === 'update' && $page['file'] === 'settings' ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				$id           = ( isset( $_REQUEST["id"] ) ) ? absint( $_REQUEST["id"] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				$page['name'] = __( 'Update', 'sticky-buttons' ) . ' #' . $id;
 			} elseif ( $page['file'] === 'settings' && ( $action !== 'new' && $action !== 'duplicate' ) ) {
 				continue;
 			}
+			if ( $page['file'] === 'pro' ) {
+				echo '<a class="nav-tab' . esc_attr( $class ) . '" href="' . esc_url( Link::menu( $page['file'], $action, $id ) ) . '"><span class="wpie-icon wpie_icon-rocket"></span>' . esc_html( $page['name'] ) . '</a>';
+			} else {
+				echo '<a class="nav-tab' . esc_attr( $class ) . '" href="' . esc_url( Link::menu( $page['file'], $action, $id ) ) . '">' . esc_html( $page['name'] ) . '</a>';
+			}
 
-			echo '<a class="nav-tab' . esc_attr( $class ) . '" href="' . esc_url( Link::menu( $page['file'], $action, $id ) ) . '">' . esc_html( $page['name'] ) . '</a>';
 		}
 		echo '</h2>';
 	}
@@ -177,28 +192,28 @@ class Dashboard {
 	public static function get_current_page(): string {
 		$default = DashboardHelper::first_file( 'pages' );
 
-		return ( isset( $_REQUEST["tab"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["tab"] ) ) : $default;
+		// Nonce verification is not required as the “tab” parameter is read-only.
+		return ( isset( $_REQUEST["tab"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["tab"] ) ) : $default; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
 	public static function include_pages(): void {
 		$current_page = self::get_current_page();
 
-		$pages   = DashboardHelper::get_files( 'pages' );
+		$pages = DashboardHelper::get_files( 'pages' );
+		$pages = apply_filters( WOWP_Plugin::PREFIX . '_admin_pages_menu', $pages );
+
 		$default = DashboardHelper::first_file( 'pages' );
 
 		$current = DashboardHelper::search_value( $pages, $current_page ) ? $current_page : $default;
 
 		$file = DashboardHelper::get_file( $current, 'pages' );
 
+		$file_path = DashboardHelper::get_folder_path( 'pages' ) . '/' . $file;
 
-		if ( $file !== false ) {
-			$file = apply_filters( WOWP_Plugin::PREFIX . '_admin_filter_file', $file, $current );
+		$page_path = apply_filters( WOWP_Plugin::PREFIX . '_admin_filter_file', $file_path, $file, $current );
 
-			$page_path = DashboardHelper::get_folder_path( 'pages' ) . '/' . $file;
-
-			if ( file_exists( $page_path ) ) {
-				require_once $page_path;
-			}
+		if ( file_exists( $page_path ) ) {
+			require_once $page_path;
 		}
 
 	}

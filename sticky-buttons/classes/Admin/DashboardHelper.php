@@ -4,24 +4,21 @@
  * Class DashboardHelper
  *
  * Helper class for managing the dashboard.
+ *
+ * @package    WowPlugin
+ * @subpackage Admin
+ * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
+ * @copyright  2024 Dmytro Lobov
+ * @license    GPL-2.0+
+ *
  */
 
 namespace StickyButtons\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
-use /**
- * The StickyButtons\WOWP_Plugin class is responsible for initializing and managing the functionality of the WP Buttons plugin.
- *
- * @package StickyButtons
- */
-	StickyButtons\WOWP_Plugin;
+use StickyButtons\WOWP_Plugin;
 
-/**
- * Class DashboardHelper
- *
- * This class provides various helper methods for handling dashboard operations.
- */
 class DashboardHelper {
 
 	public static function first_file( $folder ) {
@@ -37,6 +34,7 @@ class DashboardHelper {
 	public static function get_files( $folder ): array {
 		$scan_files = scandir( self::get_folder_path( $folder ) );
 		$files      = [];
+		$license    = false;
 		foreach ( $scan_files as $file ) {
 			if ( $file === '.' || $file === '..' || $file === 'index.php' ) {
 				continue;
@@ -52,6 +50,7 @@ class DashboardHelper {
 			$file_name = self::get_file_name( $file, $folder );
 
 			$files[ $matches[0] ] = [ 'file' => $matches[1], 'name' => $file_name ];
+
 		}
 
 		return $files;
