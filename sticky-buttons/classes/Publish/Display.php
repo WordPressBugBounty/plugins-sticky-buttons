@@ -42,9 +42,6 @@ class Display {
 	private static function check_shows( $showParams, $param ): bool {
 
 		foreach ( $showParams as $i => $show ) {
-			if ( str_contains( $show, self::POST_PREFIX ) && self::custom_post( $i, $param ) ) {
-				return true;
-			}
 
 			if ( self::is_match( $show, $i, $param ) ) {
 				return true;
