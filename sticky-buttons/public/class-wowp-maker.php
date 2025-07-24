@@ -157,15 +157,39 @@ class WOWP_Maker {
 		$style .= '--bg:' . esc_attr( $param['menu_1']['bcolor'][ $i ] ) . ';';
 
 
-		if ( isset( $menu['label_font'] ) && $menu['label_font'] !== 'inherit' ) {
-			$style .= '--_font-family:"' . esc_attr( $param['menu_1']['label_font'][ $i ] ) . '";';
+		if ( isset( $menu['label_font'][ $i ] ) && $menu['label_font'][ $i ] !== 'inherit' ) {
+			switch ( $menu['label_font'][ $i ] ) {
+				case 'Tahoma':
+					$font = 'Tahoma, sans-serif';
+					break;
+				case 'Arial':
+					$font = 'Arial, sans-serif';
+					break;
+				case 'Lucida Grande':
+					$font = '"Lucida Grande", sans-serif';
+					break;
+				case 'Georgia':
+					$font = 'Georgia, serif';
+					break;
+				case 'Times New Roman':
+					$font = '"Times New Roman", serif';
+					break;
+				case 'Comic Sans MS':
+					$font = '"Comic Sans MS", cursive';
+					break;
+				default:
+					$font = 'inherit';
+					break;
+			}
+
+			$style .= '--_font-family:' . esc_attr( $font ) . ';';
 		}
 
-		if ( isset( $menu['label_style'] ) && $menu['label_style'] !== 'normal' ) {
+		if ( isset( $menu['label_style'][ $i ] ) && $menu['label_style'][ $i ] !== 'normal' ) {
 			$style .= '--_font-style:' . esc_attr( $param['menu_1']['label_style'][ $i ] ) . ';';
 		}
 
-		if ( isset( $menu['label_weight'] ) && $menu['label_weight'] !== 'normal' ) {
+		if ( isset( $menu['label_weight'][ $i ] ) && $menu['label_weight'][ $i ] !== 'normal' ) {
 			$style .= '--_font-weight:' . esc_attr( $param['menu_1']['label_weight'][ $i ] ) . ';';
 		}
 
