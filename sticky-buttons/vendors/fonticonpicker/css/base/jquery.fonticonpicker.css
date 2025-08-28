@@ -283,7 +283,7 @@
 .icons-selector .fa-solid,
 .icons-selector .far,
 .icons-selector .fa-regular {
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 }
 
 .icons-selector .fas,
@@ -297,6 +297,6 @@
 
 .icons-selector .fab,
 .icons-selector .fa-brands {
-	font-family: 'Font Awesome 6 Brands';
+	font-family: 'Font Awesome 7 Brands';
 	font-weight: 400;
 }

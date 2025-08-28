@@ -127,7 +127,7 @@ class WOWP_Admin {
 		$slug              = WOWP_Plugin::SLUG;
 		$version = WOWP_Plugin::info( 'version' );
 
-		wp_enqueue_style( $slug. '-fontawesome', WOWP_Plugin::url() . 'vendors/fontawesome/css/all.min.css', [], '6.7.1' );
+		wp_enqueue_style( $slug. '-fontawesome', WOWP_Plugin::url() . 'vendors/fontawesome/css/all.min.css', [], '7.0' );
 
 		$fonticonpicker_js = $url_assets . 'fonticonpicker/js/jquery.fonticonpicker.js';
 		wp_enqueue_script( $slug . '-fonticonpicker', $fonticonpicker_js, array( 'jquery' ), '3.1.1', true );
