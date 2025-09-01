@@ -91,7 +91,7 @@ class WOWP_Maker {
 		$style = ! empty( $style ) ? ' style="' . esc_attr( $style ) . '"' : '';
 
 		$css = '';
-		if ( ! empty( $param['include_mobile'] ) ) {
+		if ( ! empty( $param['mobile_screen_on'] ) ) {
 			$screen = ! empty( $param['screen'] ) ? $param['screen'] : 480;
 			$css    .= '
 					@media only screen and (max-width: ' . absint( $screen ) . 'px){
@@ -101,7 +101,7 @@ class WOWP_Maker {
 					}';
 		}
 
-		if ( ! empty( $param['include_more_screen'] ) ) {
+		if ( ! empty( $param['desktop_screen_on'] ) ) {
 			$screen_more = ! empty( $param['screen_more'] ) ? $param['screen_more'] : 1200;
 			$css         .= '
 					@media only screen and (min-width: ' . absint( $screen_more ) . 'px){

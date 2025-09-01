@@ -5,7 +5,7 @@ Tags: sticky buttons, floating buttons, sticky menu, floating menu, float button
 Requires at least: 5.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.3
+Stable tag: 4.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,9 @@ No, **Sticky Buttons is lightweight, optimized for speed, and designed for minim
 2. Sticky Buttons 2
 
 == Changelog ==
+= 4.3.1 =
+* Fixed: options 'Mobile Rules', 'Hide on smaller screens', 'Hide on larger screens'
+
 = 4.3 =
 * Updated: Font Awesome library upgraded to version **7.0.0**.
 

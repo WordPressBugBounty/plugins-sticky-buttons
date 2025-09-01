@@ -39,7 +39,7 @@ $args = [
 				'type'  => 'number',
 				'title' => [
 					'label'  => __( 'Hide on smaller screens', 'sticky-buttons' ),
-					'name'   => 'mobile_on',
+					'name'   => 'mobile_screen_on',
 					'toggle' => true,
 				],
 				'val'   => 480,
@@ -50,7 +50,7 @@ $args = [
 				'type'  => 'number',
 				'title' => [
 					'label'  => __( 'Hide on larger screens', 'sticky-buttons' ),
-					'name'   => 'desktop_on',
+					'name'   => 'desktop_screen_on',
 					'toggle' => true,
 				],
 				'val'   => 1024,
