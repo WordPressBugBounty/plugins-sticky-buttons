@@ -3,7 +3,7 @@
  *  Plugin Name:       Sticky Buttons
  *  Plugin URI:        https://wordpress.org/plugins/sticky-buttons/
  *  Description:       Easily create sticky buttons of varying complexity.
- *  Version:           4.3.1
+ *  Version:           4.3.2
  *  Author:            Wow-Company
  *  Author URI:        https://wow-estore.com/
  *  License:           GPL-2.0+
@@ -183,8 +183,6 @@ if ( ! class_exists( 'WOWP_Plugin' ) ) :
 		 */
 		public function loaded(): void {
 			UpdateDB::init();
-			$languages_folder = dirname( plugin_basename( __FILE__ ) ) . '/languages/';
-			load_plugin_textdomain( 'sticky-buttons', false, $languages_folder );
 		}
 	}
 

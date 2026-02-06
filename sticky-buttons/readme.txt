@@ -3,9 +3,9 @@ Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/sticky-buttons-pro/
 Tags: sticky buttons, floating buttons, sticky menu, floating menu, float buttons
 Requires at least: 5.5
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 4.3.1
+Stable tag: 4.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,10 @@ No, **Sticky Buttons is lightweight, optimized for speed, and designed for minim
 2. Sticky Buttons 2
 
 == Changelog ==
+= 4.3.2 =
+* Updated: Font Awesome library upgraded to version **7.1**.
+* Updated: `wp-color-picker-alpha` to version **3.0.4**.
+
 = 4.3.1 =
 * Fixed: options 'Mobile Rules', 'Hide on smaller screens', 'Hide on larger screens'
 
