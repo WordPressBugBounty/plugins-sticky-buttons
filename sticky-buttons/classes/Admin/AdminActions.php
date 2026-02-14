@@ -5,7 +5,7 @@
  *
  * This class handles administrative actions in the plugin.
  *
- * @package    WowPlugin
+ * @package    StickyButtons
  * @subpackage Admin
  * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov

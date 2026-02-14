@@ -5,7 +5,7 @@
  *
  * Provides methods to check conditions for displaying item
  *
- * @package    WowPlugin
+ * @package    StickyButtons
  * @subpackage Publish
  * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov

@@ -3,7 +3,7 @@
 /**
  * The Link class provides methods for generating URLs with query arguments.
  *
- * @package    WowPlugin
+ * @package    StickyButtons
  * @subpackage Admin
  * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov

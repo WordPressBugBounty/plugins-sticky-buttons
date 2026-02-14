@@ -5,7 +5,7 @@
  *
  * This class provides functionality for exporting and importing data.
  *
- * @package    WowPlugin
+ * @package    StickyButtons
  * @subpackage Admin
  * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov

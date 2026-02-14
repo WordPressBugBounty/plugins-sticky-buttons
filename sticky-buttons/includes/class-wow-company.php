@@ -4,7 +4,7 @@
  *
  * The Wow_Company class represents a company in the WordPress admin menu that provides Wow Plugins.
  *
- * @package    WowPlugin
+ * @package    StickyButtons
  * @subpackage General
  * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov

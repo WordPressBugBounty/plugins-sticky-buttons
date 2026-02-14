@@ -5,7 +5,7 @@
  *
  * This class is responsible for displaying the item based on specific conditions.
  *
- * @package    WowPlugin
+ * @package    StickyButtons
  * @subpackage Publish
  * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov

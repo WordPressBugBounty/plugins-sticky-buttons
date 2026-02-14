@@ -5,7 +5,7 @@
  *
  * The Autoloader class is responsible for loading classes automatically based on their namespace.
  *
- * @package    WowPlugin
+ * @package    StickyButtons
  * @subpackage Autoloader
  * @author     Dmytro Lobov <dev@wow-company.com>, Wow-Company
  * @copyright  2024 Dmytro Lobov
