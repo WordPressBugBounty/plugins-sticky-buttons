@@ -154,14 +154,20 @@
   max-inline-size: var(--block-size);
 }
 .sticky-buttons button.is-active .sb-icon,
-.sticky-buttons button:focus .sb-icon,
-.sticky-buttons button:hover .sb-icon,
-.sticky-buttons a.is-active .sb-icon,
-.sticky-buttons a:focus .sb-icon,
-.sticky-buttons a:hover .sb-icon {
+.sticky-buttons a.is-active .sb-icon {
   background: var(--_icon-bhcolor);
   color: var(--_icon-hcolor);
   animation: none;
+}
+@media (hover: hover) {
+  .sticky-buttons button:focus .sb-icon,
+  .sticky-buttons button:hover .sb-icon,
+  .sticky-buttons a:focus .sb-icon,
+  .sticky-buttons a:hover .sb-icon {
+    background: var(--_icon-bhcolor);
+    color: var(--_icon-hcolor);
+    animation: none;
+  }
 }
 
 .sticky-buttons {
@@ -216,25 +222,34 @@
   inline-size: calc(var(--_label-size) / 2);
 }
 .sticky-buttons button.is-active .sb-label,
-.sticky-buttons button:focus .sb-label,
-.sticky-buttons button:hover .sb-label,
-.sticky-buttons a.is-active .sb-label,
-.sticky-buttons a:focus .sb-label,
-.sticky-buttons a:hover .sb-label {
+.sticky-buttons a.is-active .sb-label {
   visibility: visible;
   opacity: 1;
   background: var(--_label-bhcolor);
   color: var(--_label-hcolor);
 }
+@media (hover: hover) {
+  .sticky-buttons button:focus .sb-label,
+  .sticky-buttons button:hover .sb-label,
+  .sticky-buttons a:focus .sb-label,
+  .sticky-buttons a:hover .sb-label {
+    visibility: visible;
+    opacity: 1;
+    background: var(--_label-bhcolor);
+    color: var(--_label-hcolor);
+  }
+}
 .sticky-buttons button.is-active .sb-label,
-.sticky-buttons button:focus .sb-label,
-.sticky-buttons a.is-active .sb-label,
-.sticky-buttons a:focus .sb-label {
+.sticky-buttons a.is-active .sb-label {
   z-index: 2;
 }
-.sticky-buttons button:hover .sb-label,
-.sticky-buttons a:hover .sb-label {
-  z-index: 3;
+@media (hover: hover) {
+  .sticky-buttons button:focus .sb-label,
+  .sticky-buttons button:hover .sb-label,
+  .sticky-buttons a:focus .sb-label,
+  .sticky-buttons a:hover .sb-label {
+    z-index: 3;
+  }
 }
 
 .sticky-buttons.-left-top, .sticky-buttons.-left-center, .sticky-buttons.-left-bottom, .sticky-buttons.-right-top, .sticky-buttons.-right-center, .sticky-buttons.-right-bottom {
