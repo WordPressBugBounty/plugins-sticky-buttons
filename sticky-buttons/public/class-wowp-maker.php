@@ -58,7 +58,7 @@ class WOWP_Maker {
 		$space     = ! empty( $param['space'] ) ? ' -space' : '';
 		$shadow    = ! empty( $param['shadow'] ) ? ' -shadow' : '';
 		$animation = isset( $param['animation'] ) ? ' ' . $param['animation'] : '';
-		$mobile    = isset( $param['mobile_on'] ) ? ' mobile-rule' : '';
+		$mobile    = !empty( $param['mobile_on'] ) ? ' mobile-rule' : '';
 
 		$type = '';
 
