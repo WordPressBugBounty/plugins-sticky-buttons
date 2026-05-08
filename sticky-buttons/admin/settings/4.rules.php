@@ -51,11 +51,11 @@ foreach ( $data['args'] as $key => $value ) {
 						}
 						echo '</div>';
 						if ( $key === 'rules' ) {
-							do_action( WOWP_Plugin::PREFIX . '_rules_display', $options, $v, $field );
+							do_action( WOWP_Plugin::PREFIX . '_rules_display', $options, $v, $field ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 						}
 
 						if ( $key === 'schedule' ) {
-							do_action( WOWP_Plugin::PREFIX . '_rules_schedule', $options, $v, $field );
+							do_action( WOWP_Plugin::PREFIX . '_rules_schedule', $options, $v, $field ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 						}
 
 					}

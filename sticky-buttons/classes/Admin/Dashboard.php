@@ -13,6 +13,8 @@
 
 namespace StickyButtons\Admin;
 
+defined( 'ABSPATH' ) || exit;
+
 use StickyButtons\WOWP_Plugin;
 
 class Dashboard {
@@ -61,7 +63,7 @@ class Dashboard {
 		if ( $page !== $hook ) {
 			return;
 		}
-		do_action( WOWP_Plugin::PREFIX . '_admin_load_assets' );
+		do_action( WOWP_Plugin::PREFIX . '_admin_load_assets' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 		$slug       = WOWP_Plugin::SLUG;
 		$version    = WOWP_Plugin::info( 'version' );
@@ -138,8 +140,8 @@ class Dashboard {
                     <a href="<?php echo esc_url( Link::add_new_item() ); ?>" class="button button-primary">
 						<?php esc_html_e( 'Add New', 'sticky-buttons' ); ?>
                     </a>
-					<?php do_action( WOWP_Plugin::PREFIX . '_admin_after_button' ); ?>
-					<?php do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); ?>
+					<?php do_action( WOWP_Plugin::PREFIX . '_admin_after_button' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound ?>
+					<?php do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound ?>
                 </div>
             </div>
         </div>
@@ -159,9 +161,9 @@ class Dashboard {
 	}
 
 	public static function menu(): void {
-		$pages = DashboardHelper::get_files( 'pages' );
+		$pages = DashboardHelper::get_files( 'pages' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
-		$pages = apply_filters( WOWP_Plugin::PREFIX . '_admin_pages_menu', $pages );
+		$pages = apply_filters( WOWP_Plugin::PREFIX . '_admin_pages_menu', $pages ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 		$current_page = self::get_current_page();
 
@@ -200,7 +202,7 @@ class Dashboard {
 		$current_page = self::get_current_page();
 
 		$pages = DashboardHelper::get_files( 'pages' );
-		$pages = apply_filters( WOWP_Plugin::PREFIX . '_admin_pages_menu', $pages );
+		$pages = apply_filters( WOWP_Plugin::PREFIX . '_admin_pages_menu', $pages ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 		$default = DashboardHelper::first_file( 'pages' );
 
@@ -210,7 +212,7 @@ class Dashboard {
 
 		$file_path = DashboardHelper::get_folder_path( 'pages' ) . '/' . $file;
 
-		$page_path = apply_filters( WOWP_Plugin::PREFIX . '_admin_filter_file', $file_path, $file, $current );
+		$page_path = apply_filters( WOWP_Plugin::PREFIX . '_admin_filter_file', $file_path, $file, $current ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 		if ( file_exists( $page_path ) ) {
 			require_once $page_path;

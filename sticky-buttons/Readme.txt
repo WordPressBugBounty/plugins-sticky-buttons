@@ -5,7 +5,7 @@ Tags: sticky buttons, floating menu, social icons, action button, mobile menu
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 4.3.5
+Stable tag: 4.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -229,6 +229,10 @@ No, **Sticky Buttons is lightweight, optimized for speed, and designed for minim
 2. Sticky Buttons 2
 
 == Changelog ==
+= 4.3.6 =
+* Fixed a minor bug with output tags
+* Fixed: a minor bug with code quality
+
 = 4.3.5 =
 * Fixed: check the option 'Mobile Rules'
 

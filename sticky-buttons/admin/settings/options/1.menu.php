@@ -155,7 +155,7 @@ $args = [
 
 ];
 
-$args = apply_filters( WOWP_Plugin::PREFIX . '_menu_options', $args );
+$args = apply_filters( WOWP_Plugin::PREFIX . '_menu_options', $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 
 $prefix = 'menu_1-';

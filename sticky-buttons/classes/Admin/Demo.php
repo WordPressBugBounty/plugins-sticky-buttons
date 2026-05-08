@@ -2,6 +2,8 @@
 
 namespace StickyButtons\Admin;
 
+defined( 'ABSPATH' ) || exit;
+
 use StickyButtons\Update\UpdateDB;
 use StickyButtons\WOWP_Plugin;
 

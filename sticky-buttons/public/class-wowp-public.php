@@ -39,7 +39,7 @@ class WOWP_Public {
 
 	public function includes(): void {
 		$path_maker = plugin_dir_path( __FILE__ ) . 'class-wowp-maker.php';
-		require_once apply_filters(WOWP_Plugin::PREFIX . '_include_maker', $path_maker);
+		require_once apply_filters(WOWP_Plugin::PREFIX . '_include_maker', $path_maker); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 	}
 
 	public function shortcode( $atts ): string {
@@ -80,7 +80,7 @@ class WOWP_Public {
 	public function assets(): void {
 		$handle          = WOWP_Plugin::SLUG;
 		$assets          = plugin_dir_url( __FILE__ ) . 'assets/';
-		$assets          = apply_filters( WOWP_Plugin::PREFIX . '_frontend_assets', $assets );
+		$assets          = apply_filters( WOWP_Plugin::PREFIX . '_frontend_assets', $assets ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 		$version         = WOWP_Plugin::info( 'version' );
 		$url_fontawesome = WOWP_Plugin::url() . 'vendors/fontawesome/css/all.css';
 
@@ -105,7 +105,7 @@ class WOWP_Public {
 	public function footer(): void {
 		$handle          = WOWP_Plugin::SLUG;
 		$assets          = plugin_dir_url( __FILE__ ) . 'assets/';
-		$assets          = apply_filters( WOWP_Plugin::PREFIX . '_frontend_assets', $assets );
+		$assets          = apply_filters( WOWP_Plugin::PREFIX . '_frontend_assets', $assets ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 		$version         = WOWP_Plugin::info( 'version' );
 		$url_fontawesome = WOWP_Plugin::url() . 'vendors/fontawesome/css/all.css';
 

@@ -4,6 +4,8 @@
  *
  */
 
+defined( 'ABSPATH' ) || exit;
+
 use StickyButtons\WOWP_Plugin;
 
 $features = [

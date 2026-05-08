@@ -57,7 +57,7 @@ class Display {
 			'everywhere'    => 'check_everywhere',
 		];
 
-		$cases = apply_filters( WOWP_Plugin::PREFIX . '_pro_match_cases', $cases );
+		$cases = apply_filters( WOWP_Plugin::PREFIX . '_pro_match_cases', $cases ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 
 		if ( ! isset( $cases[ $show ] ) ) {
@@ -70,7 +70,7 @@ class Display {
 			return self::$function( $i, $param );
 		}
 
-		return apply_filters( WOWP_Plugin::PREFIX . "_pro_match_callback_{$function}", false, $i, $param );
+		return apply_filters( WOWP_Plugin::PREFIX . "_pro_match_callback_{$function}", false, $i, $param ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 	}
 

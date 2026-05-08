@@ -29,7 +29,7 @@ class Conditions {
 			'mode'           => self::mode( $result->mode ),
 		];
 
-		$check = apply_filters( WOWP_Plugin::PREFIX . '_conditions', $check, $param );
+		$check = apply_filters( WOWP_Plugin::PREFIX . '_conditions', $check, $param ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 		if ( in_array( false, $check, true ) ) {
 			return false;
